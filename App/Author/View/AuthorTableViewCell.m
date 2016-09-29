@@ -7,7 +7,6 @@
 //
 
 #import "AuthorTableViewCell.h"
-#import "AuthorModel.h"
 
 @implementation AuthorTableViewCell
 
@@ -48,28 +47,12 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-
-    self.iconImage.frame = CGRectMake(20, 20, 30, 30);
-//    self.iconImage.layer.cornerRadius = 20;
-//    self.iconImage.layer.masksToBounds = YES;
     
-    self.authorLabel.frame = CGRectMake(90, 10, 100, 20);
+    self.authorLabel.frame = CGRectMake(20, 10, 100, 20);
     
     self.videoCount.frame = CGRectMake(self.authorLabel.right + 5, 10, 70, 20);
     
-    self.desLabel.frame = CGRectMake(90,35, ScreenWidth - 110, 20);
-}
-
-/**
- *  设置子控件的数据
- */
-- (void)setTg:(AuthorModel *)authorModel
-{
-    _authorModel = authorModel;
-    self.iconImage.image = [UIImage imageNamed:authorModel.iconImage];
-    self.authorLabel.text = authorModel.authorLabel;
-    self.videoCount.text = authorModel.videoCount;
-    self.desLabel.text = authorModel.desLabel;
+    self.desLabel.frame = CGRectMake(_authorLabel.left,_authorLabel.bottom + 5, ScreenWidth - 50, 20);
 }
 
 

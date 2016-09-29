@@ -16,7 +16,7 @@
 
 #define dailyList @"http://baobab.wandoujia.com/api/v1/feed.bak?num=%ld&date=%@"
 
-#define Author @"http://baobab.wandoujia.com/api/v3/tabs/pgcs?_s=38d5979635673bcef5fb9826569a7967"
+#define Author @"http://baobab.wandoujia.com/api/v3/tabs/pgcs/more?start=0&num=10"
 
 #define MyChinFont @"FZLTZCHJW--GB1-0"
 

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9208BA0C1D80007500A1AC19 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B94C1D80007500A1AC19 /* ThreeViewController.m */; };
+		3E8CEBC21D9CCF390074FCE9 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBC11D9CCF390074FCE9 /* ThreeViewController.m */; };
+		3E8CEBC51D9CD6A50074FCE9 /* Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBC41D9CD6A50074FCE9 /* Networking.m */; };
+		3E8CEBC81D9CE8A30074FCE9 /* VideoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBC71D9CE8A30074FCE9 /* VideoListModel.m */; };
 		9208BA0D1D80007500A1AC19 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9521D80007500A1AC19 /* OneViewController.m */; };
 		9208BA0E1D80007500A1AC19 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9571D80007500A1AC19 /* DiscoveryCell.m */; };
 		9208BA0F1D80007500A1AC19 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B95A1D80007500A1AC19 /* TwoViewController.m */; };
@@ -149,8 +151,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9208B94B1D80007500A1AC19 /* ThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeViewController.h; path = ../ThreeViewController.h; sourceTree = "<group>"; };
-		9208B94C1D80007500A1AC19 /* ThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeViewController.m; path = ../ThreeViewController.m; sourceTree = "<group>"; };
+		3E8CEBC01D9CCF390074FCE9 /* ThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeViewController.h; path = App/Author/ThreeViewController.h; sourceTree = SOURCE_ROOT; };
+		3E8CEBC11D9CCF390074FCE9 /* ThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeViewController.m; path = App/Author/ThreeViewController.m; sourceTree = SOURCE_ROOT; };
+		3E8CEBC31D9CD6A50074FCE9 /* Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
+		3E8CEBC41D9CD6A50074FCE9 /* Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
+		3E8CEBC61D9CE8A30074FCE9 /* VideoListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoListModel.h; path = App/lib/VideoListModel.h; sourceTree = SOURCE_ROOT; };
+		3E8CEBC71D9CE8A30074FCE9 /* VideoListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoListModel.m; path = App/lib/VideoListModel.m; sourceTree = SOURCE_ROOT; };
 		9208B9511D80007500A1AC19 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneViewController.h; path = ../OneViewController.h; sourceTree = "<group>"; };
 		9208B9521D80007500A1AC19 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneViewController.m; path = ../OneViewController.m; sourceTree = "<group>"; };
 		9208B9561D80007500A1AC19 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoveryCell.h; path = ../DiscoveryCell.h; sourceTree = "<group>"; };
@@ -398,8 +404,8 @@
 		9208B9491D80007500A1AC19 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9208B94B1D80007500A1AC19 /* ThreeViewController.h */,
-				9208B94C1D80007500A1AC19 /* ThreeViewController.m */,
+				3E8CEBC01D9CCF390074FCE9 /* ThreeViewController.h */,
+				3E8CEBC11D9CCF390074FCE9 /* ThreeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -446,6 +452,8 @@
 		9208B9501D80007500A1AC19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E8CEBC61D9CE8A30074FCE9 /* VideoListModel.h */,
+				3E8CEBC71D9CE8A30074FCE9 /* VideoListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -506,6 +514,8 @@
 				9208B9AB1D80007500A1AC19 /* Net.h */,
 				9208B9AC1D80007500A1AC19 /* SDWebImage */,
 				9208BA791D800C1200A1AC19 /* MyPrefixHeader.pch */,
+				3E8CEBC31D9CD6A50074FCE9 /* Networking.h */,
+				3E8CEBC41D9CD6A50074FCE9 /* Networking.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -1092,6 +1102,7 @@
 				920CEFAD1D827A6C00A7D22C /* MJRefreshBackNormalFooter.m in Sources */,
 				9208BA151D80007500A1AC19 /* AFURLConnectionOperation.m in Sources */,
 				9208BA101D80007500A1AC19 /* AFHTTPRequestOperation.m in Sources */,
+				3E8CEBC51D9CD6A50074FCE9 /* Networking.m in Sources */,
 				920CEFAA1D827A6C00A7D22C /* MJRefreshAutoNormalFooter.m in Sources */,
 				9208BA251D80007500A1AC19 /* UIColor+FlatColors.m in Sources */,
 				9208BA8E1D8029B400A1AC19 /* SVIndefiniteAnimatedView.m in Sources */,
@@ -1124,6 +1135,7 @@
 				9208BA0E1D80007500A1AC19 /* DiscoveryCell.m in Sources */,
 				920CEFA91D827A6C00A7D22C /* MJRefreshAutoGifFooter.m in Sources */,
 				920CEFA51D827A6C00A7D22C /* MJRefreshBackFooter.m in Sources */,
+				3E8CEBC21D9CCF390074FCE9 /* ThreeViewController.m in Sources */,
 				920CEFA71D827A6C00A7D22C /* MJRefreshFooter.m in Sources */,
 				9208BA1E1D80007500A1AC19 /* UIButton+AFNetworking.m in Sources */,
 				9208BA3D1D80007500A1AC19 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1151,9 +1163,9 @@
 				9208BA391D80007500A1AC19 /* SDWebImagePrefetcher.m in Sources */,
 				9208BA411D80007500A1AC19 /* AppDelegate.m in Sources */,
 				9208BA321D80007500A1AC19 /* NSData+ImageContentType.m in Sources */,
+				3E8CEBC81D9CE8A30074FCE9 /* VideoListModel.m in Sources */,
 				9208BA1A1D80007500A1AC19 /* README.md in Sources */,
 				920CEFAC1D827A6C00A7D22C /* MJRefreshBackGifFooter.m in Sources */,
-				9208BA0C1D80007500A1AC19 /* ThreeViewController.m in Sources */,
 				9208BA121D80007500A1AC19 /* AFHTTPSessionManager.m in Sources */,
 				920CEFB11D827A6D00A7D22C /* MJRefreshStateHeader.m in Sources */,
 				9208BA3A1D80007500A1AC19 /* UIButton+WebCache.m in Sources */,
@@ -1292,14 +1304,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_OPTIMIZATION_PROFILE_FILE = /Users/zhangdinghao/Desktop/App/App/lib/MyPrefixHeader.pch;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhangdinghao/Desktop/App/App/lib/MyPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/App/lib/MyPrefixHeader.pch";
 				GENERATE_PROFILING_CODE = NO;
 				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangdinghao.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1311,14 +1324,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_OPTIMIZATION_PROFILE_FILE = /Users/zhangdinghao/Desktop/App/App/lib/MyPrefixHeader.pch;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/zhangdinghao/Desktop/App/App/lib/MyPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/App/lib/MyPrefixHeader.pch";
 				GENERATE_PROFILING_CODE = NO;
 				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangdinghao.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";

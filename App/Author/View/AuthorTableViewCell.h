@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class AuthorModel;
 @interface AuthorTableViewCell : UITableViewCell
 
 // icon
@@ -20,7 +19,5 @@
 // 简介
 @property (nonatomic, strong) UILabel *desLabel;
 
-/** 团购模型 */
-@property (nonatomic, strong) AuthorModel *authorModel;
 
 @end

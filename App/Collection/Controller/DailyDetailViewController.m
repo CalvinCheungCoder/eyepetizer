@@ -21,24 +21,13 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     
-    NSLog(@"_dataDict = %@",_dataDict);
-    
     [self setUI];
 }
 
 -(void)setUI{
     
-    NSString *cover = _dataDict[@"coverForDetail"];
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width)];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:cover] completed:nil];
-    [self.view addSubview:imageView];
-    
-    UIImageView *playImage = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth/2 - 35, ScreenWidth/2 - 35, 70, 70)];
-    playImage.image = [UIImage imageNamed:@"play"];
-    [self.view addSubview:playImage];
-    
-    UIImageView *backImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, ScreenWidth, ScreenWidth, ScreenHeight - ScreenWidth)];
-    [backImageView sd_setImageWithURL:[NSURL URLWithString:cover] completed:nil];
+    UIImageView *backImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    [backImageView sd_setImageWithURL:[NSURL URLWithString:self.model.ImageView] completed:nil];
     [self.view addSubview:backImageView];
     
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
@@ -47,28 +36,44 @@
     blurView.frame = backImageView.bounds;
     [backImageView addSubview:blurView];
     
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width)];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.model.ImageView] completed:nil];
+    [self.view addSubview:imageView];
+    
+    UIImageView *playImage = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth/2 - 35, ScreenWidth/2 - 35, 70, 70)];
+    playImage.image = [UIImage imageNamed:@"play"];
+    [self.view addSubview:playImage];
+    
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, imageView.bottom + 10, ScreenWidth - 20, 20)];
-    titleLabel.text = _dataDict[@"title"];
+    titleLabel.text = self.model.titleLabel;
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.font = [UIFont fontWithName:MyChinFont size:16.f];
     titleLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:titleLabel];
     
-    NSString *duration = _dataDict[@"duration"];
-    NSString *category = _dataDict[@"category"];
+    
     UILabel *messageLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, titleLabel.bottom + 10, ScreenWidth - 20, 20)];
-    messageLabel.text = [NSString stringWithFormat:@"#%@%@%@",category,@" / ",[self timeStrFormTime:duration]];
+    messageLabel.text = [NSString stringWithFormat:@"#%@%@%@",self.model.category,@" / ",[self timeStrFormTime:self.model.duration]];
     messageLabel.textColor = [UIColor whiteColor];
     messageLabel.font = [UIFont fontWithName:MyChinFontTwo size:12.f];
     messageLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:messageLabel];
     
-    UILabel *desLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, messageLabel.bottom + 20, ScreenWidth - 20, 100)];
-    desLabel.text = _dataDict[@"description"];
+    // Desc
+    UILabel *desLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, messageLabel.bottom + 10, ScreenWidth - 20, 100)];
+    desLabel.text = self.model.desc;
     desLabel.textColor = [UIColor whiteColor];
-    desLabel.font = [UIFont fontWithName:MyChinFontTwo size:13.f];
+    desLabel.font = [UIFont fontWithName:MyChinFontTwo size:12.f];
     desLabel.textAlignment = NSTextAlignmentLeft;
     desLabel.numberOfLines = 0;
+    
+    // 设置Desc行间距
+    NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.model.desc];
+    NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle1 setLineSpacing:6];
+    [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [self.model.desc length])];
+    [desLabel setAttributedText:attributedString1];
+    [desLabel sizeToFit];
     
     [self.view addSubview:desLabel];
     
@@ -92,7 +97,7 @@
                     [UIImage imageNamed:@"collect"],
                     [UIImage imageNamed:@"upload"], nil];
     
-    NSDictionary *dict = _dataDict[@"consumption"];
+    NSDictionary *dict = self.model.consumption;
     NSArray *messageArr = [NSArray arrayWithObjects:
                            [NSString stringWithFormat:@"%@",dict[@"collectionCount"]],
                            [NSString stringWithFormat:@"%@",dict[@"replyCount"]],
@@ -103,11 +108,11 @@
         UIImageView *image = [[UIImageView alloc]init];
         UILabel *label = [[UILabel alloc]init];
         image.frame = CGRectMake(ScreenWidth/5 * i + 10, ScreenHeight - 50, 20, 20);
-        label.frame = CGRectMake(ScreenWidth/5 * i + 35, ScreenHeight - 50, 30, 20);
+        label.frame = CGRectMake(ScreenWidth/5 * i + 35, ScreenHeight - 50, 40, 20);
         image.image = arr[i];
         label.text = messageArr[i];
         label.textColor = [UIColor whiteColor];
-        label.font = [UIFont fontWithName:MyChinFontTwo size:14.f];
+        label.font = [UIFont fontWithName:MyChinFontTwo size:10.f];
         label.textAlignment = NSTextAlignmentLeft;
         [self.view addSubview:image];
         [self.view addSubview:label];
@@ -131,10 +136,9 @@
 -(void)btnClicked{
     
     VideoPlayViewController *videoPlay = [[VideoPlayViewController alloc]init];
-    videoPlay.UrlString = _dataDict[@"playUrl"];
-    videoPlay.titleStr = _dataDict[@"title"];
-    NSString *str = _dataDict[@"duration"];
-    videoPlay.duration = [str floatValue];
+    videoPlay.UrlString = self.model.playUrl;
+    videoPlay.titleStr = self.model.titleLabel;
+    videoPlay.duration = [self.model.duration floatValue];
     [self showDetailViewController:videoPlay sender:nil];
 }
 
