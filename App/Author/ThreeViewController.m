@@ -90,7 +90,7 @@
     [SVProgressHUD showWithStatus:@"数据加载中..."];
     self.modelArr = [[NSMutableArray alloc]init];
     
-    [Networking requestDataByURL:Author success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [Networking requestDataByURL:Author Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSArray *itemListArr = [responseObject objectForKey:@"itemList"];
         
@@ -117,8 +117,6 @@
         [self endRefresh];
         [SVProgressHUD dismiss];
     }];
-    
-    
 }
 
 -(void)endRefresh{
@@ -139,7 +137,7 @@
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD showWithStatus:@"数据加载中..."];
         
-        [Networking requestDataByURL:self.nextPageUrl success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [Networking requestDataByURL:self.nextPageUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             self.nextPageUrl = nil;
             NSArray *itemListArr = [responseObject objectForKey:@"itemList"];

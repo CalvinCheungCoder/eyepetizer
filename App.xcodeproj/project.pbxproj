@@ -10,8 +10,9 @@
 		3E8CEBC21D9CCF390074FCE9 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBC11D9CCF390074FCE9 /* ThreeViewController.m */; };
 		3E8CEBC51D9CD6A50074FCE9 /* Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBC41D9CD6A50074FCE9 /* Networking.m */; };
 		3E8CEBC81D9CE8A30074FCE9 /* VideoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBC71D9CE8A30074FCE9 /* VideoListModel.m */; };
+		3E8CEBCF1D9D059E0074FCE9 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBCE1D9D059E0074FCE9 /* DiscoveryCell.m */; };
+		3E8CEBD51D9D05D90074FCE9 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBD41D9D05D90074FCE9 /* DiscoveryModel.m */; };
 		9208BA0D1D80007500A1AC19 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9521D80007500A1AC19 /* OneViewController.m */; };
-		9208BA0E1D80007500A1AC19 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9571D80007500A1AC19 /* DiscoveryCell.m */; };
 		9208BA0F1D80007500A1AC19 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B95A1D80007500A1AC19 /* TwoViewController.m */; };
 		9208BA101D80007500A1AC19 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9601D80007500A1AC19 /* AFHTTPRequestOperation.m */; };
 		9208BA111D80007500A1AC19 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9621D80007500A1AC19 /* AFHTTPRequestOperationManager.m */; };
@@ -157,10 +158,12 @@
 		3E8CEBC41D9CD6A50074FCE9 /* Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
 		3E8CEBC61D9CE8A30074FCE9 /* VideoListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoListModel.h; path = App/lib/VideoListModel.h; sourceTree = SOURCE_ROOT; };
 		3E8CEBC71D9CE8A30074FCE9 /* VideoListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoListModel.m; path = App/lib/VideoListModel.m; sourceTree = SOURCE_ROOT; };
+		3E8CEBCD1D9D059E0074FCE9 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoveryCell.h; path = App/Discovery/DiscoveryCell.h; sourceTree = SOURCE_ROOT; };
+		3E8CEBCE1D9D059E0074FCE9 /* DiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoveryCell.m; path = App/Discovery/DiscoveryCell.m; sourceTree = SOURCE_ROOT; };
+		3E8CEBD31D9D05D90074FCE9 /* DiscoveryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoveryModel.h; path = App/Discovery/DiscoveryModel.h; sourceTree = SOURCE_ROOT; };
+		3E8CEBD41D9D05D90074FCE9 /* DiscoveryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoveryModel.m; path = App/Discovery/DiscoveryModel.m; sourceTree = SOURCE_ROOT; };
 		9208B9511D80007500A1AC19 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneViewController.h; path = ../OneViewController.h; sourceTree = "<group>"; };
 		9208B9521D80007500A1AC19 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneViewController.m; path = ../OneViewController.m; sourceTree = "<group>"; };
-		9208B9561D80007500A1AC19 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoveryCell.h; path = ../DiscoveryCell.h; sourceTree = "<group>"; };
-		9208B9571D80007500A1AC19 /* DiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoveryCell.m; path = ../DiscoveryCell.m; sourceTree = "<group>"; };
 		9208B9591D80007500A1AC19 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoViewController.h; path = ../TwoViewController.h; sourceTree = "<group>"; };
 		9208B95A1D80007500A1AC19 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwoViewController.m; path = ../TwoViewController.m; sourceTree = "<group>"; };
 		9208B95F1D80007500A1AC19 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 		9208B9581D80007500A1AC19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E8CEBD31D9D05D90074FCE9 /* DiscoveryModel.h */,
+				3E8CEBD41D9D05D90074FCE9 /* DiscoveryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -498,8 +503,8 @@
 		9208B95B1D80007500A1AC19 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9208B9561D80007500A1AC19 /* DiscoveryCell.h */,
-				9208B9571D80007500A1AC19 /* DiscoveryCell.m */,
+				3E8CEBCD1D9D059E0074FCE9 /* DiscoveryCell.h */,
+				3E8CEBCE1D9D059E0074FCE9 /* DiscoveryCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1111,6 +1116,7 @@
 				9208BA7F1D80213B00A1AC19 /* DailyDetailViewController.m in Sources */,
 				9208BA181D80007500A1AC19 /* AFURLSessionManager.m in Sources */,
 				9208BA401D80007500A1AC19 /* FourViewController.m in Sources */,
+				3E8CEBCF1D9D059E0074FCE9 /* DiscoveryCell.m in Sources */,
 				920CEFAE1D827A6C00A7D22C /* MJRefreshBackStateFooter.m in Sources */,
 				920CEFB71D827A6D00A7D22C /* UIView+MJExtension.m in Sources */,
 				9208BA231D80007500A1AC19 /* Factory.m in Sources */,
@@ -1132,7 +1138,6 @@
 				920CEFB01D827A6D00A7D22C /* MJRefreshNormalHeader.m in Sources */,
 				9208BA341D80007500A1AC19 /* SDWebImageCompat.m in Sources */,
 				9221A4AC1D7D236B00C76C73 /* main.m in Sources */,
-				9208BA0E1D80007500A1AC19 /* DiscoveryCell.m in Sources */,
 				920CEFA91D827A6C00A7D22C /* MJRefreshAutoGifFooter.m in Sources */,
 				920CEFA51D827A6C00A7D22C /* MJRefreshBackFooter.m in Sources */,
 				3E8CEBC21D9CCF390074FCE9 /* ThreeViewController.m in Sources */,
@@ -1155,6 +1160,7 @@
 				9208BA1D1D80007500A1AC19 /* UIAlertView+AFNetworking.m in Sources */,
 				9208BA221D80007500A1AC19 /* UIWebView+AFNetworking.m in Sources */,
 				9208BA1C1D80007500A1AC19 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				3E8CEBD51D9D05D90074FCE9 /* DiscoveryModel.m in Sources */,
 				9208BA0F1D80007500A1AC19 /* TwoViewController.m in Sources */,
 				9208BA211D80007500A1AC19 /* UIRefreshControl+AFNetworking.m in Sources */,
 				920CEFB51D827A6D00A7D22C /* UIScrollView+MJExtension.m in Sources */,

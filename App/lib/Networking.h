@@ -18,6 +18,6 @@ typedef void(^SuccessBlock) (AFHTTPRequestOperation *operation, id responseObjec
 typedef void(^FailBlock) (AFHTTPRequestOperation *operation, NSError *error);
 
 // 封装Get请求方法
-+ (void)requestDataByURL:(NSString *)URL success:(SuccessBlock)success failBlock:(FailBlock)fail;
++ (void)requestDataByURL:(NSString *)URL Parameters:(NSDictionary *)parameters success:(SuccessBlock)success failBlock:(FailBlock)fail;
 
 @end

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoveryDetailController : UIViewController
+@interface DiscoveryDetailController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) NSString *actionUrl;
+
+@property (nonatomic, strong) NSString *NextPageStr;
+
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *ListArr;
 
 @end

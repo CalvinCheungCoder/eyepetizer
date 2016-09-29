@@ -23,10 +23,10 @@
     return manager;
 }
 
-+(void)requestDataByURL:(NSString *)URL success:(SuccessBlock)success failBlock:(FailBlock)fail{
++(void)requestDataByURL:(NSString *)URL Parameters:(NSDictionary *)parameters success:(SuccessBlock)success failBlock:(FailBlock)fail{
     
     AFHTTPRequestOperationManager *manager = [Networking initAFHttpManager];
-    [manager GET:URL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:URL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(operation,responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         fail(operation,error);

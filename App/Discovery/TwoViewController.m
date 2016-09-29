@@ -7,15 +7,12 @@
 //
 
 #import "TwoViewController.h"
-#import "MyHelper.h"
-#import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
 #import "DiscoveryCell.h"
+#import "DiscoveryDetailController.h"
+#import "DiscoveryModel.h"
 
 @interface TwoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
-
-// 网络请求
-@property(nonatomic,strong)AFHTTPRequestOperationManager *manager;
 
 @property (nonatomic, strong) NSMutableArray *ListArr;
 
@@ -36,6 +33,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     _ListArr = [[NSMutableArray alloc]init];
+    
+    
     
     // 流水布局:调整cell尺寸
     UICollectionViewFlowLayout *layout = [self setupCollectionViewFlowLayout];
@@ -75,34 +74,42 @@
     
     collection.delegate = self;
     collection.dataSource = self;
-    [collection registerClass:[DiscoveryCell class] forCellWithReuseIdentifier:@"cell"];
+    [collection registerClass:[DiscoveryCell class] forCellWithReuseIdentifier:@"Cell"];
     self.collectionView = collection;
 }
 
 -(void)getNetData{
     
-    _manager = [AFHTTPRequestOperationManager manager];
-    // 设置请求格式
-    _manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
     NSString *urlStr = @"http://baobab.wandoujia.com/api/v3/discovery";
-    [_manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [Networking requestDataByURL:urlStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *itemList = [responseObject objectForKey:@"itemList"];
         for (NSDictionary *dict in itemList) {
             NSString *type = [dict objectForKey:@"type"];
             if ([type isEqualToString:@"squareCard"]) {
-                [_ListArr addObject:dict];
+                
+                NSDictionary *dataDic = dict[@"data"];
+                NSMutableArray *arr = [[NSMutableArray alloc]init];
+                [arr addObject:dataDic];
+                
+                for (NSDictionary *Dic in arr) {
+                    
+                    DiscoveryModel *model = [[DiscoveryModel alloc]init];
+                    model.image = [NSString stringWithFormat:@"%@",Dic[@"image"]];
+                    model.actionUrl = [NSString stringWithFormat:@"%@",Dic[@"actionUrl"]];
+                    model.title = [NSString stringWithFormat:@"%@",Dic[@"title"]];
+                    
+                    [_ListArr addObject:model];
+                }
             }
         }
-        NSLog(@"_ListArr = %@",_ListArr);
         
+        NSLog(@"_ListArr == %@",_ListArr);
         [_collectionView reloadData];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
-
 }
 
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
@@ -118,17 +125,23 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-        
-    DiscoveryCell *cell = (DiscoveryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    NSDictionary *dict = _ListArr[indexPath.row];
-    NSDictionary *dict2 = [dict objectForKey:@"data"];
-    NSString *imageStr = [dict2 objectForKey:@"image"];
-    NSString *titleStr = [dict2 objectForKey:@"title"];
     
-    [cell.ImageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-    }];
-    cell.titleLabel.text = titleStr;
+    DiscoveryCell *cell = (DiscoveryCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    DiscoveryModel *model = _ListArr[indexPath.row];
+    
+    [cell.ImageView sd_setImageWithURL:[NSURL URLWithString:model.image]];
+    cell.titleLabel.text = model.title;
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    DiscoveryDetailController *dis = [[DiscoveryDetailController alloc]init];
+    DiscoveryModel *model = _ListArr[indexPath.row];
+    dis.actionUrl = model.actionUrl;
+    dis.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:dis animated:YES];
 }
 
 #pragma mark - layout的代理事件

@@ -87,9 +87,8 @@
     
     NSString *str = [self changeTime:[self getdate]];
     NSString *urlStr = [NSString stringWithFormat:dailyList,10,str];
-    NSLog(@"urlStr = %@",urlStr);
     
-    [Networking requestDataByURL:urlStr success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [Networking requestDataByURL:urlStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         self.NextPageStr = [responseObject objectForKey:@"nextPageUrl"];
         NSLog(@"NextPageStr == %@",self.NextPageStr);
@@ -125,6 +124,7 @@
         
         [self endRefresh];
         [SVProgressHUD dismiss];
+        
     }];
 }
 
@@ -140,7 +140,8 @@
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD showWithStatus:@"数据加载中..."];
         
-        [Networking requestDataByURL:self.NextPageStr success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [Networking requestDataByURL:self.NextPageStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             self.NextPageStr = [responseObject objectForKey:@"nextPageUrl"];
             NSLog(@"NextPageStr == %@",self.NextPageStr);
