@@ -23,6 +23,19 @@
 
 @implementation MainView
 
+- (BOOL)shouldAutorotate//是否支持旋转屏幕
+{
+    return YES;
+}
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations//支持哪些方向
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation//默认显示的方向
+{
+    return UIInterfaceOrientationPortrait;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
