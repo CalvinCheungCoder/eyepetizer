@@ -127,10 +127,7 @@
 // 加载更多
 -(void)loadMore{
     
-    if ([self.NextPageStr isEqualToString:@"<null>"]) {
-        
-        [self endRefresh];
-    }else{
+    if (!self.NextPageStr) {
         
         //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -169,6 +166,10 @@
             [self endRefresh];
             [SVProgressHUD dismiss];
         }];
+        
+    }else{
+        
+        [self endRefresh];
     }
 }
 

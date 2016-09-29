@@ -66,10 +66,6 @@
         vc.tabBarItem = [[UITabBarItem alloc]initWithTitle:titleArr[i] image:[UIImage imageNamed:normalImgArr[i]] selectedImage:[[UIImage imageNamed:selectedImgArr[i]]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ]];
         vc.tabBarItem.tag = i;
     }
-    //tabbar的背景
-//    self.tabBar.backgroundColor = [UIColor redColor];
-    //item被选中时背景文字颜色
-    //权限最高
     
     [[UITabBarItem appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateSelected];
     

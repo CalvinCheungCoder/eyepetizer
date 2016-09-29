@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSString *actionUrl;
 
+@property (nonatomic, strong) NSString *pageTitle;
+
 @property (nonatomic, strong) NSString *NextPageStr;
 
 @property (nonatomic, strong) UITableView *tableView;

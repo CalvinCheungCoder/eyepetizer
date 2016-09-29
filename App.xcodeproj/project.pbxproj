@@ -16,6 +16,8 @@
 		3E8CEBDC1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBDA1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m */; };
 		3E8CEBDF1D9D15FA0074FCE9 /* backImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CEBDD1D9D15FA0074FCE9 /* backImage@2x.png */; };
 		3E8CEBE01D9D15FA0074FCE9 /* backImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CEBDE1D9D15FA0074FCE9 /* backImage@3x.png */; };
+		3E8CEBE31D9D32750074FCE9 /* PopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBE21D9D32750074FCE9 /* PopularViewController.m */; };
+		3E8CEBE61D9D328F0074FCE9 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBE51D9D328F0074FCE9 /* ProjectViewController.m */; };
 		9208BA0D1D80007500A1AC19 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9521D80007500A1AC19 /* OneViewController.m */; };
 		9208BA0F1D80007500A1AC19 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B95A1D80007500A1AC19 /* TwoViewController.m */; };
 		9208BA101D80007500A1AC19 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9601D80007500A1AC19 /* AFHTTPRequestOperation.m */; };
@@ -172,6 +174,10 @@
 		3E8CEBDA1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomNavigationExtension.m"; sourceTree = "<group>"; };
 		3E8CEBDD1D9D15FA0074FCE9 /* backImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backImage@2x.png"; sourceTree = "<group>"; };
 		3E8CEBDE1D9D15FA0074FCE9 /* backImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backImage@3x.png"; sourceTree = "<group>"; };
+		3E8CEBE11D9D32750074FCE9 /* PopularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularViewController.h; sourceTree = "<group>"; };
+		3E8CEBE21D9D32750074FCE9 /* PopularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularViewController.m; sourceTree = "<group>"; };
+		3E8CEBE41D9D328F0074FCE9 /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
+		3E8CEBE51D9D328F0074FCE9 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
 		9208B9511D80007500A1AC19 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneViewController.h; path = ../OneViewController.h; sourceTree = "<group>"; };
 		9208B9521D80007500A1AC19 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneViewController.m; path = ../OneViewController.m; sourceTree = "<group>"; };
 		9208B9591D80007500A1AC19 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoViewController.h; path = ../TwoViewController.h; sourceTree = "<group>"; };
@@ -508,6 +514,10 @@
 				9208B95A1D80007500A1AC19 /* TwoViewController.m */,
 				9208BA761D80013000A1AC19 /* DiscoveryDetailController.h */,
 				9208BA771D80013000A1AC19 /* DiscoveryDetailController.m */,
+				3E8CEBE11D9D32750074FCE9 /* PopularViewController.h */,
+				3E8CEBE21D9D32750074FCE9 /* PopularViewController.m */,
+				3E8CEBE41D9D328F0074FCE9 /* ProjectViewController.h */,
+				3E8CEBE51D9D328F0074FCE9 /* ProjectViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1172,6 +1182,7 @@
 				9208BA3D1D80007500A1AC19 /* UIImageView+HighlightedWebCache.m in Sources */,
 				920CEFB31D827A6D00A7D22C /* MJRefreshConst.m in Sources */,
 				9208BA821D80289C00A1AC19 /* VideoPlayViewController.m in Sources */,
+				3E8CEBE61D9D328F0074FCE9 /* ProjectViewController.m in Sources */,
 				920CEFAB1D827A6C00A7D22C /* MJRefreshAutoStateFooter.m in Sources */,
 				9208BA371D80007500A1AC19 /* SDWebImageDownloaderOperation.m in Sources */,
 				9208BA1F1D80007500A1AC19 /* UIImageView+AFNetworking.m in Sources */,
@@ -1189,6 +1200,7 @@
 				9208BA1C1D80007500A1AC19 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				3E8CEBD51D9D05D90074FCE9 /* DiscoveryModel.m in Sources */,
 				9208BA0F1D80007500A1AC19 /* TwoViewController.m in Sources */,
+				3E8CEBE31D9D32750074FCE9 /* PopularViewController.m in Sources */,
 				3E8CEBDB1D9D157D0074FCE9 /* CustomNavigationController.m in Sources */,
 				9208BA211D80007500A1AC19 /* UIRefreshControl+AFNetworking.m in Sources */,
 				920CEFB51D827A6D00A7D22C /* UIScrollView+MJExtension.m in Sources */,

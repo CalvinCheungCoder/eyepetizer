@@ -1,34 +1,39 @@
 //
-//  DiscoveryDetailController.m
+//  PopularViewController.m
 //  App
 //
-//  Created by 张丁豪 on 16/9/7.
+//  Created by CalvinCheung on 16/9/29.
 //  Copyright © 2016年 张丁豪. All rights reserved.
 //
 
-#import "DiscoveryDetailController.h"
+#import "PopularViewController.h"
 #import "VideoListModel.h"
 #import "VideoListTableViewCell.h"
 
-#define URL @"http://baobab.wandoujia.com/api/v1/videos.bak?strategy=date&categoryName="
+@interface PopularViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@implementation DiscoveryDetailController
+@property (nonatomic, strong) NSString *NextPageStr;
 
--(void)viewDidLoad{
-    
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *ListArr;
+
+@end
+
+@implementation PopularViewController
+
+- (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = self.pageTitle;
-    
     self.ListArr = [[NSMutableArray alloc]init];
-    self.NextPageStr = [NSString new];
-    [self getNetData];
-    
+    self.title = @"排行榜";
     [self setTableView];
+    [self getPopular];
     
     //默认【下拉刷新】
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNetData)];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getPopular)];
     //默认【上拉加载】
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     [self setupRefresh];
@@ -39,7 +44,7 @@
     
     MJRefreshNormalHeader *header  =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        [self getNetData];
+        [self getPopular];
     }];
     
     self.tableView.mj_header = header;
@@ -52,34 +57,33 @@
     self.tableView.mj_footer = footer;
 }
 
-
--(void)getNetData{
+#pragma mark -- 获取Popular
+-(void)getPopular{
     
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showWithStatus:@"数据加载中..."];
     
-    NSArray *array = [self.actionUrl componentsSeparatedByString:@"title="];
-    
-    NSString *str = [NSString stringWithFormat:@"%@%@%@",URL,array.lastObject,@"&num=10"];
-    
-    [Networking requestDataByURL:str Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [Networking requestDataByURL:PopularUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
         NSLog(@"NextPageStr == %@",self.NextPageStr);
         
-        NSDictionary *videoListDict = [responseObject objectForKey:@"videoList"];
+        NSLog(@"responseObject == %@",responseObject);
         
-        for (NSDictionary *dict in videoListDict) {
+        NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
+        
+        for (NSDictionary *dict in itemListDict) {
+            NSDictionary *dataDict = dict[@"data"];
             
             VideoListModel *model = [[VideoListModel alloc]init];
-            model.ImageView = [NSString stringWithFormat:@"%@",dict[@"coverForDetail"]];
-            model.titleLabel = [NSString stringWithFormat:@"%@",dict[@"title"]];
-            model.category = [NSString stringWithFormat:@"%@",dict[@"category"]];
-            model.duration = [NSString stringWithFormat:@"%@",dict[@"duration"]];
-            model.desc = [NSString stringWithFormat:@"%@",dict[@"description"]];
-            model.playUrl = [NSString stringWithFormat:@"%@",dict[@"playUrl"]];
-            NSDictionary *Dic = dict[@"consumption"];
+            model.ImageView = [NSString stringWithFormat:@"%@",dataDict[@"cover"][@"detail"]];
+            model.titleLabel = [NSString stringWithFormat:@"%@",dataDict[@"title"]];
+            model.category = [NSString stringWithFormat:@"%@",dataDict[@"category"]];
+            model.duration = [NSString stringWithFormat:@"%@",dataDict[@"duration"]];
+            model.desc = [NSString stringWithFormat:@"%@",dataDict[@"description"]];
+            model.playUrl = [NSString stringWithFormat:@"%@",dataDict[@"playUrl"]];
+            NSDictionary *Dic = dataDict[@"consumption"];
             model.consumption = Dic;
             
             [_ListArr addObject:model];
@@ -97,7 +101,7 @@
 
 #pragma mark -- 加载更多
 -(void)loadMore{
-
+    
     if ([self.NextPageStr isEqualToString:@"<null>"]) {
         
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -113,18 +117,22 @@
             self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
             NSLog(@"NextPageStr == %@",self.NextPageStr);
             
-            NSDictionary *videoListDict = [responseObject objectForKey:@"videoList"];
+            NSLog(@"responseObject == %@",responseObject);
             
-            for (NSDictionary *dict in videoListDict) {
+            NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
+            
+            for (NSDictionary *dict in itemListDict) {
+                
+                NSDictionary *dataDict = dict[@"data"];
                 
                 VideoListModel *model = [[VideoListModel alloc]init];
-                model.ImageView = [NSString stringWithFormat:@"%@",dict[@"coverForDetail"]];
-                model.titleLabel = [NSString stringWithFormat:@"%@",dict[@"title"]];
-                model.category = [NSString stringWithFormat:@"%@",dict[@"category"]];
-                model.duration = [NSString stringWithFormat:@"%@",dict[@"duration"]];
-                model.desc = [NSString stringWithFormat:@"%@",dict[@"description"]];
-                model.playUrl = [NSString stringWithFormat:@"%@",dict[@"playUrl"]];
-                NSDictionary *Dic = dict[@"consumption"];
+                model.ImageView = [NSString stringWithFormat:@"%@",dataDict[@"cover"][@"detail"]];
+                model.titleLabel = [NSString stringWithFormat:@"%@",dataDict[@"title"]];
+                model.category = [NSString stringWithFormat:@"%@",dataDict[@"category"]];
+                model.duration = [NSString stringWithFormat:@"%@",dataDict[@"duration"]];
+                model.desc = [NSString stringWithFormat:@"%@",dataDict[@"description"]];
+                model.playUrl = [NSString stringWithFormat:@"%@",dataDict[@"playUrl"]];
+                NSDictionary *Dic = dataDict[@"consumption"];
                 model.consumption = Dic;
                 
                 [_ListArr addObject:model];
@@ -187,9 +195,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
-//    detail.model = _ListArr[indexPath.row];
-//    [self presentViewController:detail animated:YES completion:nil];
+    //    DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
+    //    detail.model = _ListArr[indexPath.row];
+    //    [self presentViewController:detail animated:YES completion:nil];
 }
 
 

@@ -29,5 +29,7 @@
 
 @property (nonatomic, copy) NSString *playUrl;
 
+@property (nonatomic, copy) NSString *actionUrl;
+
 
 @end

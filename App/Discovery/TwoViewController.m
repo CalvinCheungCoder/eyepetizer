@@ -11,6 +11,8 @@
 #import "DiscoveryCell.h"
 #import "DiscoveryDetailController.h"
 #import "DiscoveryModel.h"
+#import "PopularViewController.h"
+#import "ProjectViewController.h"
 
 @interface TwoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -135,11 +137,28 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    DiscoveryDetailController *dis = [[DiscoveryDetailController alloc]init];
-    DiscoveryModel *model = _ListArr[indexPath.row];
-    dis.actionUrl = model.actionUrl;
-    dis.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:dis animated:YES];
+    
+    if (indexPath.row == 0) {
+        
+        PopularViewController *popular = [[PopularViewController alloc]init];
+        popular.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:popular animated:YES];
+        
+    }else if (indexPath.row == 1){
+        
+        ProjectViewController *project = [[ProjectViewController alloc]init];
+        project.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:project animated:YES];
+        
+    }else{
+    
+        DiscoveryDetailController *dis = [[DiscoveryDetailController alloc]init];
+        DiscoveryModel *model = _ListArr[indexPath.row];
+        dis.actionUrl = model.actionUrl;
+        dis.pageTitle = model.title;
+        dis.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:dis animated:YES];
+    }
 }
 
 #pragma mark - layout的代理事件
