@@ -19,6 +19,17 @@
 
 @implementation CustomWrapNavigationController
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:YES];
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 80, 40)];
+    label.text = @"eyepetizer";
+    label.font = [UIFont fontWithName:@"SnellRoundhand-Bold" size:16];
+    label.textColor = [UIColor blackColor];
+    self.navigationItem.titleView = label;
+}
+
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {
     return [self.navigationController popViewControllerAnimated:animated];
@@ -198,7 +209,6 @@ static NSValue *Cus_tabBarRectValue;
     }
     
 }
-
 
 #pragma mark - UIGestureRecognizerDelegate
 

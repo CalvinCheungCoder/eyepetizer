@@ -27,10 +27,13 @@
 // TopUrl
 #define TopUrl @"http://baobab.wandoujia.com/api/v3/specialTopics?_s=44e4ee05b1f5d1efd3e30735e81230b2"
 
+
 #define MyChinFont @"FZLTZCHJW--GB1-0"
 
 #define MyChinFontTwo @"FZLTXIHJW--GB1-0"
 
 #define MyEnFont @"Chalkduster"
+
+#define MyEnFontTwo @"Lobster 1.4.otf"
 
 #endif /* Net_h */

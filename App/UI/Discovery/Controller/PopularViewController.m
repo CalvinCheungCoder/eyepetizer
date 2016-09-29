@@ -9,6 +9,7 @@
 #import "PopularViewController.h"
 #import "VideoListModel.h"
 #import "VideoListTableViewCell.h"
+#import "DailyDetailViewController.h"
 
 @interface PopularViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -195,9 +196,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    //    DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
-    //    detail.model = _ListArr[indexPath.row];
-    //    [self presentViewController:detail animated:YES completion:nil];
+    DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
+    detail.model = _ListArr[indexPath.row];
+    [self presentViewController:detail animated:YES completion:nil];
 }
 
 

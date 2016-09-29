@@ -79,7 +79,7 @@
         
         self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
         NSLog(@"NextPageStr == %@",self.NextPageStr);
-        
+
         NSLog(@"responseObject == %@",responseObject);
         
         NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];

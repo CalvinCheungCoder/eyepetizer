@@ -72,8 +72,13 @@
     messageLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:messageLabel];
     
+    UIButton *Linebtn = [[UIButton alloc]initWithFrame:CGRectMake(10, messageLabel.bottom + 10, ScreenWidth - 10, 1)];
+    [Linebtn setBackgroundColor:[UIColor grayColor]];
+    Linebtn.userInteractionEnabled = NO;
+    [self.view addSubview:Linebtn];
+    
     // Desc
-    UILabel *desLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, messageLabel.bottom + 10, ScreenWidth - 20, 100)];
+    UILabel *desLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, Linebtn.bottom + 10, ScreenWidth - 20, 100)];
     desLabel.text = self.model.desc;
     desLabel.textColor = [UIColor whiteColor];
     desLabel.font = [UIFont fontWithName:MyChinFontTwo size:12.f];

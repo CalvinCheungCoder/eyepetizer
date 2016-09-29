@@ -12,7 +12,6 @@
 #import "ThreeViewController.h"
 #import "FourViewController.h"
 #import "MyHelper.h"
-#import "NavViewController.h"
 #import "CustomNavigationController.h"
 
 @interface MainView ()
@@ -44,28 +43,27 @@
     [self createSubViewControllers];
     //设置所有的、分栏元素项
     [self setTabBarItems];
-    
-    // 去除tabbar细线
-//    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
-//    [[UITabBar appearance] setBackgroundImage:[[UIImage alloc] init]];
 }
 
 -(void)createSubViewControllers{
     
     OneViewController *One = [[OneViewController alloc]init];
-    NavViewController *navi = [[NavViewController alloc]initWithRootViewController:One];
+    CustomNavigationController *navi = [[CustomNavigationController alloc]initWithRootViewController:One];
+    navi.fullScreenPopGestureEnabled = YES;
     
     TwoViewController *Two = [[TwoViewController alloc]init];
     CustomNavigationController *navitwo = [[CustomNavigationController alloc]initWithRootViewController:Two];
     navitwo.fullScreenPopGestureEnabled = YES;
     
     ThreeViewController *Three = [[ThreeViewController alloc]init];
-    NavViewController *navithree = [[NavViewController alloc]initWithRootViewController:Three];
+    CustomNavigationController *navithree = [[CustomNavigationController alloc]initWithRootViewController:Three];
+    navithree.fullScreenPopGestureEnabled = YES;
     
     FourViewController *Four = [[FourViewController alloc]init];
-//    UINavigationController *naviFour = [[UINavigationController alloc]initWithRootViewController:Four];
+    CustomNavigationController *naviFour = [[CustomNavigationController alloc]initWithRootViewController:Four];
+    naviFour.fullScreenPopGestureEnabled = YES;
     
-    self.viewControllers = @[navi,navitwo,navithree,Four];
+    self.viewControllers = @[navi,navitwo,navithree,naviFour];
 }
 
 -(void)setTabBarItems{
