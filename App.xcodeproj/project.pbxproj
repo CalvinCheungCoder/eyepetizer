@@ -12,6 +12,10 @@
 		3E8CEBC81D9CE8A30074FCE9 /* VideoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBC71D9CE8A30074FCE9 /* VideoListModel.m */; };
 		3E8CEBCF1D9D059E0074FCE9 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBCE1D9D059E0074FCE9 /* DiscoveryCell.m */; };
 		3E8CEBD51D9D05D90074FCE9 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBD41D9D05D90074FCE9 /* DiscoveryModel.m */; };
+		3E8CEBDB1D9D157D0074FCE9 /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBD81D9D157D0074FCE9 /* CustomNavigationController.m */; };
+		3E8CEBDC1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBDA1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m */; };
+		3E8CEBDF1D9D15FA0074FCE9 /* backImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CEBDD1D9D15FA0074FCE9 /* backImage@2x.png */; };
+		3E8CEBE01D9D15FA0074FCE9 /* backImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CEBDE1D9D15FA0074FCE9 /* backImage@3x.png */; };
 		9208BA0D1D80007500A1AC19 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9521D80007500A1AC19 /* OneViewController.m */; };
 		9208BA0F1D80007500A1AC19 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B95A1D80007500A1AC19 /* TwoViewController.m */; };
 		9208BA101D80007500A1AC19 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9601D80007500A1AC19 /* AFHTTPRequestOperation.m */; };
@@ -162,6 +166,12 @@
 		3E8CEBCE1D9D059E0074FCE9 /* DiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoveryCell.m; path = App/Discovery/DiscoveryCell.m; sourceTree = SOURCE_ROOT; };
 		3E8CEBD31D9D05D90074FCE9 /* DiscoveryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoveryModel.h; path = App/Discovery/DiscoveryModel.h; sourceTree = SOURCE_ROOT; };
 		3E8CEBD41D9D05D90074FCE9 /* DiscoveryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoveryModel.m; path = App/Discovery/DiscoveryModel.m; sourceTree = SOURCE_ROOT; };
+		3E8CEBD71D9D157D0074FCE9 /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
+		3E8CEBD81D9D157D0074FCE9 /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
+		3E8CEBD91D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CustomNavigationExtension.h"; sourceTree = "<group>"; };
+		3E8CEBDA1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CustomNavigationExtension.m"; sourceTree = "<group>"; };
+		3E8CEBDD1D9D15FA0074FCE9 /* backImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backImage@2x.png"; sourceTree = "<group>"; };
+		3E8CEBDE1D9D15FA0074FCE9 /* backImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backImage@3x.png"; sourceTree = "<group>"; };
 		9208B9511D80007500A1AC19 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneViewController.h; path = ../OneViewController.h; sourceTree = "<group>"; };
 		9208B9521D80007500A1AC19 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneViewController.m; path = ../OneViewController.m; sourceTree = "<group>"; };
 		9208B9591D80007500A1AC19 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwoViewController.h; path = ../TwoViewController.h; sourceTree = "<group>"; };
@@ -394,6 +404,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E8CEBD61D9D157D0074FCE9 /* CustomerNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				3E8CEBD71D9D157D0074FCE9 /* CustomNavigationController.h */,
+				3E8CEBD81D9D157D0074FCE9 /* CustomNavigationController.m */,
+				3E8CEBD91D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.h */,
+				3E8CEBDA1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m */,
+			);
+			path = CustomerNavigation;
+			sourceTree = "<group>";
+		};
 		9208B9481D80007500A1AC19 /* Author */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,6 +703,7 @@
 		9208B9D01D80007500A1AC19 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				3E8CEBD61D9D157D0074FCE9 /* CustomerNavigation */,
 				9208B9D11D80007500A1AC19 /* AppDelegate.h */,
 				9208B9D21D80007500A1AC19 /* AppDelegate.m */,
 				9208B9D31D80007500A1AC19 /* MainView.h */,
@@ -699,6 +721,8 @@
 		9208B9D91D80007500A1AC19 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				3E8CEBDD1D9D15FA0074FCE9 /* backImage@2x.png */,
+				3E8CEBDE1D9D15FA0074FCE9 /* backImage@3x.png */,
 				920CEF731D826ACD00A7D22C /* play.png */,
 				926D35901D8153AE00FA1301 /* collect.png */,
 				926D35911D8153AE00FA1301 /* collectSelete.png */,
@@ -1033,6 +1057,7 @@
 			files = (
 				9208BA4C1D80007500A1AC19 /* btn_download_disabled@2x.png in Resources */,
 				9208BA741D80007500A1AC19 /* weixin_feedback_index.html in Resources */,
+				3E8CEBE01D9D15FA0074FCE9 /* backImage@3x.png in Resources */,
 				9208BA721D80007500A1AC19 /* Login_BKG.png in Resources */,
 				9208BA541D80007500A1AC19 /* btn_HD_disabled@2x.png in Resources */,
 				926D35961D8153FA00FA1301 /* V-.png in Resources */,
@@ -1040,6 +1065,7 @@
 				9208BA5F1D80007500A1AC19 /* btn_next.png in Resources */,
 				9208BA6B1D80007500A1AC19 /* btn_play@3x.png in Resources */,
 				920CEFB21D827A6D00A7D22C /* MJRefresh.bundle in Resources */,
+				3E8CEBDF1D9D15FA0074FCE9 /* backImage@2x.png in Resources */,
 				926D359A1D8156EF00FA1301 /* upload.png in Resources */,
 				926D35931D8153AE00FA1301 /* collectSelete.png in Resources */,
 				9208BA6C1D80007500A1AC19 /* btn_play_iPad.png in Resources */,
@@ -1155,6 +1181,7 @@
 				9208BA431D80007500A1AC19 /* NavViewController.m in Sources */,
 				9208BA3E1D80007500A1AC19 /* UIImageView+WebCache.m in Sources */,
 				9208BA141D80007500A1AC19 /* AFSecurityPolicy.m in Sources */,
+				3E8CEBDC1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m in Sources */,
 				9208BA7C1D80102D00A1AC19 /* VideoListTableViewCell.m in Sources */,
 				9208BA3F1D80007500A1AC19 /* UIView+WebCacheOperation.m in Sources */,
 				9208BA1D1D80007500A1AC19 /* UIAlertView+AFNetworking.m in Sources */,
@@ -1162,6 +1189,7 @@
 				9208BA1C1D80007500A1AC19 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				3E8CEBD51D9D05D90074FCE9 /* DiscoveryModel.m in Sources */,
 				9208BA0F1D80007500A1AC19 /* TwoViewController.m in Sources */,
+				3E8CEBDB1D9D157D0074FCE9 /* CustomNavigationController.m in Sources */,
 				9208BA211D80007500A1AC19 /* UIRefreshControl+AFNetworking.m in Sources */,
 				920CEFB51D827A6D00A7D22C /* UIScrollView+MJExtension.m in Sources */,
 				9208BA261D80007500A1AC19 /* UIView+Addition.m in Sources */,

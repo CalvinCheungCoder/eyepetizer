@@ -13,6 +13,7 @@
 #import "FourViewController.h"
 #import "MyHelper.h"
 #import "NavViewController.h"
+#import "CustomNavigationController.h"
 
 @interface MainView ()
 
@@ -42,7 +43,8 @@
     NavViewController *navi = [[NavViewController alloc]initWithRootViewController:One];
     
     TwoViewController *Two = [[TwoViewController alloc]init];
-    NavViewController *navitwo = [[NavViewController alloc]initWithRootViewController:Two];
+    CustomNavigationController *navitwo = [[CustomNavigationController alloc]initWithRootViewController:Two];
+    navitwo.fullScreenPopGestureEnabled = YES;
     
     ThreeViewController *Three = [[ThreeViewController alloc]init];
     NavViewController *navithree = [[NavViewController alloc]initWithRootViewController:Three];

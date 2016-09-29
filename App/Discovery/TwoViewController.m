@@ -103,8 +103,6 @@
                 }
             }
         }
-        
-        NSLog(@"_ListArr == %@",_ListArr);
         [_collectionView reloadData];
         
     } failBlock:^(AFHTTPRequestOperation *operation, NSError *error) {

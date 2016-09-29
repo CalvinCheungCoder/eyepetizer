@@ -12,6 +12,10 @@
 
 #define URL @"http://baobab.wandoujia.com/api/v1/videos.bak?strategy=date&categoryName="
 
+#define PopularUrl @"http://baobab.wandoujia.com/api/v3/ranklist?_s=851a7882d2e2de2876f3dde3222637f7"
+
+#define TopUrl @"http://baobab.wandoujia.com/api/v3/specialTopics?_s=44e4ee05b1f5d1efd3e30735e81230b2"
+
 @implementation DiscoveryDetailController
 
 -(void)viewDidLoad{

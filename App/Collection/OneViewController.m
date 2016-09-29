@@ -11,8 +11,6 @@
 #import "DailyDetailViewController.h"
 #import "VideoListModel.h"
 
-#define dailyList @"http://baobab.wandoujia.com/api/v1/feed.bak?num=%d&date=%@"
-
 @interface OneViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -99,8 +97,6 @@
             NSArray *temp = [videoList objectForKey:@"videoList"];
             
             for (NSDictionary *dict in temp) {
-                
-                NSLog(@"dict = %@",dict);
                 
                 VideoListModel *model = [[VideoListModel alloc]init];
                 model.ImageView = [NSString stringWithFormat:@"%@",dict[@"coverForDetail"]];
