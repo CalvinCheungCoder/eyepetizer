@@ -27,7 +27,6 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.ListArr = [[NSMutableArray alloc]init];
     self.title = @"专题";
     [self setTableView];
     [self getProjectData];
@@ -71,6 +70,7 @@
 #pragma mark -- 获取专题
 -(void)getProjectData{
     
+    self.ListArr = [[NSMutableArray alloc]init];
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showWithStatus:@"数据加载中..."];

@@ -20,9 +20,9 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = self.pageTitle;
+    NSString *titleStr = [self.pageTitle substringFromIndex:1];
+    self.title = titleStr;
     
-    self.ListArr = [[NSMutableArray alloc]init];
     self.NextPageStr = [NSString new];
     [self getNetData];
     
@@ -56,6 +56,7 @@
 
 -(void)getNetData{
     
+    self.ListArr = [[NSMutableArray alloc]init];
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showWithStatus:@"数据加载中..."];

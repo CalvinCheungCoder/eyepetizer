@@ -28,16 +28,11 @@
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
     label.text = @"eyepetizer";
-    label.font = [UIFont fontWithName:MyEnFont size:30];
+    label.font = [UIFont fontWithName:MyEnFontTwo size:24];
     label.textColor = [UIColor blackColor];
     self.navigationItem.titleView = label;
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    _ListArr = [[NSMutableArray alloc]init];
-    
-    
-    
+    self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.05];
     // 流水布局:调整cell尺寸
     UICollectionViewFlowLayout *layout = [self setupCollectionViewFlowLayout];
     
@@ -67,7 +62,7 @@
 #pragma mark - 创建UICollectionView
 - (void)setupCollectionView:(UICollectionViewFlowLayout *)layout
 {
-    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 200) collectionViewLayout:layout];
     collection.backgroundColor = [UIColor whiteColor];
     collection.center = self.view.center;
     collection.bounds = self.view.bounds;
@@ -82,9 +77,10 @@
 
 -(void)getNetData{
     
+    _ListArr = [[NSMutableArray alloc]init];
+    
     NSString *urlStr = @"http://baobab.wandoujia.com/api/v3/discovery";
     [Networking requestDataByURL:urlStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
         NSDictionary *itemList = [responseObject objectForKey:@"itemList"];
         for (NSDictionary *dict in itemList) {
             NSString *type = [dict objectForKey:@"type"];

@@ -8,8 +8,9 @@
 
 #import "PopularViewController.h"
 #import "VideoListModel.h"
-#import "VideoListTableViewCell.h"
+#import "PopularCell.h"
 #import "DailyDetailViewController.h"
+
 
 @interface PopularViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -19,6 +20,14 @@
 
 @property (nonatomic, strong) NSMutableArray *ListArr;
 
+@property (nonatomic, strong) UILabel *topLine;
+
+@property (nonatomic, strong) UILabel *line;
+
+@property (nonatomic, strong) UIButton *seleBtn;
+
+@property (nonatomic, strong) NSString *getNetDataUrl;
+
 @end
 
 @implementation PopularViewController
@@ -26,10 +35,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"排行";
     
+    [self setTopUI];
+    self.getNetDataUrl = PopularUrl;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.ListArr = [[NSMutableArray alloc]init];
-    self.title = @"排行榜";
+    
     [self setTableView];
     [self getPopular];
     
@@ -38,8 +49,75 @@
     //默认【上拉加载】
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     [self setupRefresh];
-    
 }
+
+-(void)setTopUI{
+    
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+    topView.backgroundColor = [UIColor whiteColor];
+    
+    NSArray *arr = [NSArray arrayWithObjects:@"周排行",@"月排行",@"总排行", nil];
+    for (int i = 0;i < 3;i ++)
+    {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(i*(ScreenWidth/3), 10, ScreenWidth/3, 20);
+        btn.tag = i;
+        [btn setTitle:arr[i] forState:(UIControlStateNormal)];
+        [btn setTitleColor:[UIColor grayColor] forState:(UIControlStateNormal)];
+        [btn setTitleColor:[UIColor blackColor] forState:(UIControlStateSelected)];
+        [btn addTarget:self action:@selector(Click:) forControlEvents:(UIControlEventTouchUpInside)];
+        btn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [topView addSubview:btn];
+        if (i == 0)
+        {   btn.selected = YES;
+            self.seleBtn = btn;
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+        } else {
+            btn.selected = NO;
+        }
+    }
+    CGFloat lineWidth = ScreenWidth/6;
+    self.line = [[UILabel alloc]initWithFrame:CGRectMake(lineWidth/2,30, lineWidth, 0.5)];
+    self.line.backgroundColor = [UIColor grayColor];
+    self.line.tag = 100;
+    [topView addSubview:self.line];
+    
+    self.topLine = [[UILabel alloc]initWithFrame:CGRectMake(lineWidth/2, 10, lineWidth, 0.5)];
+    self.topLine.backgroundColor = [UIColor grayColor];
+    self.topLine.tag = 101;
+    [topView addSubview:self.topLine];
+    
+    [self.view addSubview:topView];
+}
+
+- (void)Click:(UIButton*)sender
+{
+    if (sender.tag == 0) {
+        self.getNetDataUrl = PopularUrl;
+    }else if (sender.tag == 1){
+        self.getNetDataUrl = PopularMonth;
+    }else{
+        self.getNetDataUrl = PopularAll;
+    }
+    
+    [self getPopular];
+    self.seleBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.seleBtn.selected = NO;
+    self.seleBtn = sender;
+    self.seleBtn.selected = YES;
+    self.seleBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        CGPoint frame = self.line.center;
+        frame.x = ScreenWidth/6 + ScreenWidth/3 * (sender.tag);
+        self.line.center = frame;
+        
+        CGPoint frame2 = self.topLine.center;
+        frame2.x = ScreenWidth/6 + ScreenWidth/3 * (sender.tag);
+        self.topLine.center = frame2;
+    }];
+}
+
 
 -(void)setupRefresh{
     
@@ -61,11 +139,13 @@
 #pragma mark -- 获取Popular
 -(void)getPopular{
     
+    self.ListArr = [[NSMutableArray alloc]init];
+    
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showWithStatus:@"数据加载中..."];
     
-    [Networking requestDataByURL:PopularUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [Networking requestDataByURL:self.getNetDataUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
         NSLog(@"NextPageStr == %@",self.NextPageStr);
@@ -161,7 +241,7 @@
 #pragma mark -- 设置TabView
 -(void)setTableView{
     
-    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 40, ScreenWidth, ScreenHeight - 40 - 64) style:UITableViewStylePlain];
     self.tableView.rowHeight = ScreenHeight/3;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -182,15 +262,16 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    VideoListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    PopularCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
-        cell = [[VideoListTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        cell = [[PopularCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     
     VideoListModel *model = _ListArr[indexPath.row];
     [cell.ImageView sd_setImageWithURL:[NSURL URLWithString:model.ImageView]];
     cell.titleLabel.text = model.titleLabel;
     cell.messageLabel.text = [NSString stringWithFormat:@"#%@%@%@",model.category,@" / ",[self timeStrFormTime:model.duration]];
+    cell.indexLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
     return cell;
 }
 
@@ -200,7 +281,6 @@
     detail.model = _ListArr[indexPath.row];
     [self presentViewController:detail animated:YES completion:nil];
 }
-
 
 //转换时间格式
 -(NSString *)timeStrFormTime:(NSString *)timeStr

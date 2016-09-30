@@ -29,6 +29,8 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Lobster.ttf</string>
+		<string>Lobster_1.3.otf</string>
 		<string>Lobster 1.4.otf</string>
 		<string>FZLTXIHJW--GB1-0.TTF</string>
 		<string>FZLTZCHJW--GB1-0.TTF</string>

@@ -44,11 +44,10 @@
 
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
     label.text = @"eyepetizer";
-    label.font = [UIFont fontWithName:MyEnFont size:30];
+    label.font = [UIFont fontWithName:MyEnFontTwo size:24];
     label.textColor = [UIColor blackColor];
     self.navigationItem.titleView = label;
     
-    _ListArr = [[NSMutableArray alloc]init];
     // 设置TableView
     [self setTableView];
     // 获取网络数据
@@ -81,7 +80,7 @@
 // 设置TableView
 -(void)setTableView{
     
-    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStylePlain];
     self.tableView.rowHeight = ScreenHeight/3;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -92,6 +91,8 @@
 // 获取数据
 -(void)getNetData{
     
+    _ListArr = [[NSMutableArray alloc]init];
+    
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showWithStatus:@"数据加载中..."];
@@ -101,7 +102,7 @@
     
     [Networking requestDataByURL:urlStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        self.NextPageStr = [responseObject objectForKey:@"nextPageUrl"];
+        self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
         NSLog(@"NextPageStr == %@",self.NextPageStr);
         
         NSDictionary *dailyListDict = [responseObject objectForKey:@"dailyList"];
@@ -110,7 +111,6 @@
             NSArray *temp = [videoList objectForKey:@"videoList"];
             
             for (NSDictionary *dict in temp) {
-                
                 VideoListModel *model = [[VideoListModel alloc]init];
                 model.ImageView = [NSString stringWithFormat:@"%@",dict[@"coverForDetail"]];
                 model.titleLabel = [NSString stringWithFormat:@"%@",dict[@"title"]];
@@ -140,12 +140,24 @@
 // 加载更多
 -(void)loadMore{
     
-    if (!self.NextPageStr) {
+    if ([self.NextPageStr isEqualToString:@"<null>"]) {
+        
+        UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight/3)];
+        footView.backgroundColor = [UIColor whiteColor];
+        
+        UILabel *footLabel = [[UILabel alloc]init];
+        footLabel.frame = CGRectMake(0, self.view.height/2 - 10, self.view.width, 20);
+        footLabel.font = [UIFont fontWithName:MyEnFontTwo size:14.f];
+        footLabel.text = @"- The End -";
+        [footView addSubview:footLabel];
+        self.tableView.tableFooterView = footView;
+         [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        
+    }else{
         
         //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD showWithStatus:@"数据加载中..."];
-        
         
         [Networking requestDataByURL:self.NextPageStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
@@ -157,19 +169,19 @@
                 NSArray *temp = [videoList objectForKey:@"videoList"];
                 
                 for (NSDictionary *dict in temp) {
-                    
-                    
-                    
                     VideoListModel *model = [[VideoListModel alloc]init];
                     model.ImageView = [NSString stringWithFormat:@"%@",dict[@"coverForDetail"]];
                     model.titleLabel = [NSString stringWithFormat:@"%@",dict[@"title"]];
                     model.category = [NSString stringWithFormat:@"%@",dict[@"category"]];
                     model.duration = [NSString stringWithFormat:@"%@",dict[@"duration"]];
+                    model.desc = [NSString stringWithFormat:@"%@",dict[@"description"]];
+                    model.playUrl = [NSString stringWithFormat:@"%@",dict[@"playUrl"]];
+                    NSDictionary *Dic = dict[@"consumption"];
+                    model.consumption = Dic;
                     
                     [_ListArr addObject:model];
                 }
             }
-            
             [self.tableView reloadData];
             [SVProgressHUD dismiss];
             [self endRefresh];
@@ -179,10 +191,6 @@
             [self endRefresh];
             [SVProgressHUD dismiss];
         }];
-        
-    }else{
-        
-        [self endRefresh];
     }
 }
 
@@ -233,7 +241,6 @@
     [cell.ImageView sd_setImageWithURL:[NSURL URLWithString:model.ImageView]];
     cell.titleLabel.text = model.titleLabel;
     cell.messageLabel.text = [NSString stringWithFormat:@"#%@%@%@",model.category,@" / ",[self timeStrFormTime:model.duration]];
-    
     return cell;
 }
 

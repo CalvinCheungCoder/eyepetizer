@@ -76,7 +76,7 @@
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
     label.text = @"eyepetizer";
-    label.font = [UIFont fontWithName:MyEnFontTwo size:30];
+    label.font = [UIFont fontWithName:MyEnFontTwo size:24];
     label.textColor = [UIColor blackColor];
     self.navigationItem.titleView = label;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];

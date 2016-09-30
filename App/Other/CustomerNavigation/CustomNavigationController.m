@@ -11,8 +11,7 @@
 
 #define kDefaultBackImageName @"backImage@2x"
 
-#pragma mark - JTWrapNavigationController
-
+#pragma mark - CustomWrapNavigationController
 @interface CustomWrapNavigationController : UINavigationController
 
 @end
@@ -23,13 +22,12 @@
     
     [super viewWillAppear:YES];
     
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 80, 40)];
-    label.text = @"eyepetizer";
-    label.font = [UIFont fontWithName:@"SnellRoundhand-Bold" size:16];
-    label.textColor = [UIColor blackColor];
-    self.navigationItem.titleView = label;
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"white.png"]
+                       forBarPosition:UIBarPositionAny
+                           barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+//    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
 }
-
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {
     return [self.navigationController popViewControllerAnimated:animated];
@@ -184,7 +182,6 @@ static NSValue *Cus_tabBarRectValue;
     SEL action = NSSelectorFromString(@"handleNavigationTransition:");
     self.popPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.popGestureDelegate action:action];
     self.popPanGesture.maximumNumberOfTouches = 1;
-    
 }
 
 

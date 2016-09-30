@@ -110,7 +110,7 @@
     self.shadeView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
     [self.view addSubview:self.shadeView];
     
-    //网络
+    // 网络
     NSURL *playURl = [NSURL URLWithString:self.UrlString];
     AVAsset *asset = [AVAsset assetWithURL:playURl];
     AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
@@ -316,9 +316,7 @@
 
 // 返回Button点击事件
 -(void)BackButtonDidClicked:(UIButton *)sender{
-    [self dismissViewControllerAnimated:1 completion:^{
-        
-    }];
+    [self dismissViewControllerAnimated:1 completion:nil];
 }
 
 // 音量加

@@ -160,6 +160,4 @@
     [self showDetailViewController:videoPlay sender:nil];
 }
 
-
-
 @end

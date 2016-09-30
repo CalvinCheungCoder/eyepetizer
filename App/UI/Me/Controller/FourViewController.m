@@ -32,6 +32,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
+    label.text = @"eyepetizer";
+    label.font = [UIFont fontWithName:MyEnFontTwo size:24];
+    label.textColor = [UIColor blackColor];
+    self.navigationItem.titleView = label;
+    
+    self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.05];
+    
 }
 
 //#pragma mark -- TableViewDeletage & Datasouth

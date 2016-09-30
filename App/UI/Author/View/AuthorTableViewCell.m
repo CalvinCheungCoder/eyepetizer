@@ -15,6 +15,8 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
+        self.contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.05];
+        
         UIImageView *image = [[UIImageView alloc] init];
         [self.contentView addSubview:image];
         self.iconImage = image;

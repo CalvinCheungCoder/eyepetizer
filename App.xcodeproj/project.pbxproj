@@ -26,6 +26,10 @@
 		3E8CEC1F1D9D60E00074FCE9 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEC0A1D9D60E00074FCE9 /* DiscoveryModel.m */; };
 		3E8CEC201D9D60E00074FCE9 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEC0D1D9D60E00074FCE9 /* DiscoveryCell.m */; };
 		3E8CEC211D9D60E00074FCE9 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEC111D9D60E00074FCE9 /* FourViewController.m */; };
+		3EF4638A1D9E2EF500906C69 /* CustomSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF463891D9E2EF500906C69 /* CustomSegment.m */; };
+		3EF463971D9E380900906C69 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF463961D9E380900906C69 /* white.png */; };
+		3EF4639D1D9E43E400906C69 /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4639C1D9E43E400906C69 /* Lobster.ttf */; };
+		3EF463A01D9E524600906C69 /* PopularCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4639F1D9E524600906C69 /* PopularCell.m */; };
 		9208BA101D80007500A1AC19 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9601D80007500A1AC19 /* AFHTTPRequestOperation.m */; };
 		9208BA111D80007500A1AC19 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9621D80007500A1AC19 /* AFHTTPRequestOperationManager.m */; };
 		9208BA121D80007500A1AC19 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9641D80007500A1AC19 /* AFHTTPSessionManager.m */; };
@@ -93,8 +97,6 @@
 		9208BA701D80007500A1AC19 /* FZLTZCHJW--GB1-0.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 9208BA051D80007500A1AC19 /* FZLTZCHJW--GB1-0.TTF */; };
 		9208BA721D80007500A1AC19 /* Login_BKG.png in Resources */ = {isa = PBXBuildFile; fileRef = 9208BA081D80007500A1AC19 /* Login_BKG.png */; };
 		9208BA731D80007500A1AC19 /* Splash_BKG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9208BA091D80007500A1AC19 /* Splash_BKG.jpg */; };
-		9208BA741D80007500A1AC19 /* weixin_feedback_index.html in Resources */ = {isa = PBXBuildFile; fileRef = 9208BA0A1D80007500A1AC19 /* weixin_feedback_index.html */; };
-		9208BA751D80007500A1AC19 /* wx_wifi_faq_IOS_chs.html in Resources */ = {isa = PBXBuildFile; fileRef = 9208BA0B1D80007500A1AC19 /* wx_wifi_faq_IOS_chs.html */; };
 		9208BA821D80289C00A1AC19 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208BA811D80289C00A1AC19 /* VideoPlayViewController.m */; };
 		9208BA8E1D8029B400A1AC19 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208BA851D8029B400A1AC19 /* SVIndefiniteAnimatedView.m */; };
 		9208BA8F1D8029B400A1AC19 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208BA871D8029B400A1AC19 /* SVProgressAnimatedView.m */; };
@@ -192,6 +194,12 @@
 		3E8CEC0D1D9D60E00074FCE9 /* DiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCell.m; sourceTree = "<group>"; };
 		3E8CEC101D9D60E00074FCE9 /* FourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
 		3E8CEC111D9D60E00074FCE9 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
+		3EF463881D9E2EF500906C69 /* CustomSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegment.h; sourceTree = "<group>"; };
+		3EF463891D9E2EF500906C69 /* CustomSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegment.m; sourceTree = "<group>"; };
+		3EF463961D9E380900906C69 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
+		3EF4639C1D9E43E400906C69 /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
+		3EF4639E1D9E524600906C69 /* PopularCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularCell.h; sourceTree = "<group>"; };
+		3EF4639F1D9E524600906C69 /* PopularCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularCell.m; sourceTree = "<group>"; };
 		9208B95F1D80007500A1AC19 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		9208B9601D80007500A1AC19 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		9208B9611D80007500A1AC19 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -301,8 +309,6 @@
 		9208BA051D80007500A1AC19 /* FZLTZCHJW--GB1-0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZLTZCHJW--GB1-0.TTF"; sourceTree = "<group>"; };
 		9208BA081D80007500A1AC19 /* Login_BKG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login_BKG.png; sourceTree = "<group>"; };
 		9208BA091D80007500A1AC19 /* Splash_BKG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splash_BKG.jpg; sourceTree = "<group>"; };
-		9208BA0A1D80007500A1AC19 /* weixin_feedback_index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = weixin_feedback_index.html; sourceTree = "<group>"; };
-		9208BA0B1D80007500A1AC19 /* wx_wifi_faq_IOS_chs.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wx_wifi_faq_IOS_chs.html; sourceTree = "<group>"; };
 		9208BA791D800C1200A1AC19 /* MyPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPrefixHeader.pch; sourceTree = "<group>"; };
 		9208BA801D80289C00A1AC19 /* VideoPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayViewController.h; sourceTree = "<group>"; };
 		9208BA811D80289C00A1AC19 /* VideoPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayViewController.m; sourceTree = "<group>"; };
@@ -541,6 +547,8 @@
 			children = (
 				3E8CEC0C1D9D60E00074FCE9 /* DiscoveryCell.h */,
 				3E8CEC0D1D9D60E00074FCE9 /* DiscoveryCell.m */,
+				3EF4639E1D9E524600906C69 /* PopularCell.h */,
+				3EF4639F1D9E524600906C69 /* PopularCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -578,9 +586,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3EF463871D9E2ED600906C69 /* CustomSegement */ = {
+			isa = PBXGroup;
+			children = (
+				3EF463881D9E2EF500906C69 /* CustomSegment.h */,
+				3EF463891D9E2EF500906C69 /* CustomSegment.m */,
+			);
+			path = CustomSegement;
+			sourceTree = "<group>";
+		};
 		9208B95C1D80007500A1AC19 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				3EF463871D9E2ED600906C69 /* CustomSegement */,
 				920CEF751D827A6C00A7D22C /* MJRefresh */,
 				9208BA831D8029B400A1AC19 /* SVProgressHUD */,
 				9208B95D1D80007500A1AC19 /* AFNetworking */,
@@ -732,6 +750,8 @@
 		9208B9D91D80007500A1AC19 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				3EF4639C1D9E43E400906C69 /* Lobster.ttf */,
+				3EF463961D9E380900906C69 /* white.png */,
 				3E8CEBDD1D9D15FA0074FCE9 /* backImage@2x.png */,
 				3E8CEBDE1D9D15FA0074FCE9 /* backImage@3x.png */,
 				920CEF731D826ACD00A7D22C /* play.png */,
@@ -773,8 +793,6 @@
 				9208BA061D80007500A1AC19 /* image */,
 				9208BA081D80007500A1AC19 /* Login_BKG.png */,
 				9208BA091D80007500A1AC19 /* Splash_BKG.jpg */,
-				9208BA0A1D80007500A1AC19 /* weixin_feedback_index.html */,
-				9208BA0B1D80007500A1AC19 /* wx_wifi_faq_IOS_chs.html */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -1064,7 +1082,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9208BA4C1D80007500A1AC19 /* btn_download_disabled@2x.png in Resources */,
-				9208BA741D80007500A1AC19 /* weixin_feedback_index.html in Resources */,
 				3E8CEBE01D9D15FA0074FCE9 /* backImage@3x.png in Resources */,
 				9208BA721D80007500A1AC19 /* Login_BKG.png in Resources */,
 				9208BA541D80007500A1AC19 /* btn_HD_disabled@2x.png in Resources */,
@@ -1081,10 +1098,11 @@
 				9208BA641D80007500A1AC19 /* btn_pause.png in Resources */,
 				9208BA611D80007500A1AC19 /* btn_next@3x.png in Resources */,
 				9208BA961D80318D00A1AC19 /* player_handle@2x.png in Resources */,
+				3EF4639D1D9E43E400906C69 /* Lobster.ttf in Resources */,
 				9208BA951D80318D00A1AC19 /* player_handle.png in Resources */,
 				9208BA671D80007500A1AC19 /* btn_pause_iPad.png in Resources */,
+				3EF463971D9E380900906C69 /* white.png in Resources */,
 				9208BA5A1D80007500A1AC19 /* btn_HD_normal@2x.png in Resources */,
-				9208BA751D80007500A1AC19 /* wx_wifi_faq_IOS_chs.html in Resources */,
 				9208BA6D1D80007500A1AC19 /* btn_play_iPad@2x.png in Resources */,
 				9208BA491D80007500A1AC19 /* btn_back_normal.png in Resources */,
 				9208BA681D80007500A1AC19 /* btn_pause_iPad@2x.png in Resources */,
@@ -1151,6 +1169,7 @@
 				9208BA421D80007500A1AC19 /* MainView.m in Sources */,
 				3E8CEC181D9D60E00074FCE9 /* OneViewController.m in Sources */,
 				3E8CEC141D9D60E00074FCE9 /* ThreeViewController.m in Sources */,
+				3EF4638A1D9E2EF500906C69 /* CustomSegment.m in Sources */,
 				9208BA131D80007500A1AC19 /* AFNetworkReachabilityManager.m in Sources */,
 				9208BA181D80007500A1AC19 /* AFURLSessionManager.m in Sources */,
 				920CEFAE1D827A6C00A7D22C /* MJRefreshBackStateFooter.m in Sources */,
@@ -1208,6 +1227,7 @@
 				9208BA321D80007500A1AC19 /* NSData+ImageContentType.m in Sources */,
 				9208BA1A1D80007500A1AC19 /* README.md in Sources */,
 				920CEFAC1D827A6C00A7D22C /* MJRefreshBackGifFooter.m in Sources */,
+				3EF463A01D9E524600906C69 /* PopularCell.m in Sources */,
 				9208BA121D80007500A1AC19 /* AFHTTPSessionManager.m in Sources */,
 				920CEFB11D827A6D00A7D22C /* MJRefreshStateHeader.m in Sources */,
 				9208BA3A1D80007500A1AC19 /* UIButton+WebCache.m in Sources */,
