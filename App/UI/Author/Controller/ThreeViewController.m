@@ -10,12 +10,11 @@
 #import "MyHelper.h"
 #import "AuthorTableViewCell.h"
 #import "AuthorModel.h"
+#import "AuthorDetailController.h"
 
 @interface ThreeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *TableView;
-// 网络请求
-@property(nonatomic,strong)AFHTTPRequestOperationManager *manager;
 
 @property (nonatomic, strong) NSMutableArray *modelArr;
 
@@ -34,42 +33,39 @@
     self.nextPageUrl = [NSString new];
     
     [self setNavi];
-    
+    [self setTableView];
     [self getNetData];
     
     //默认【下拉刷新】
     self.TableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNetData)];
     //默认【上拉加载】
     self.TableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
-    [self setTableView];
+    
     [self setupRefresh];
-    
-    
 }
 
 -(void)setupRefresh{
     
-    MJRefreshNormalHeader *header  =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         [self getNetData];
     }];
-    
     self.TableView.mj_header = header;
     
-    [header setTitle:@"刷新完成" forState:MJRefreshStateIdle];
-    [header setTitle:@"下拉刷新" forState:MJRefreshStatePulling];
-    [header setTitle:@"正在刷新" forState:MJRefreshStateRefreshing];
-    
-    header.stateLabel.font = [UIFont systemFontOfSize:20];
-    
-    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:14];
-    
-    MJRefreshAutoNormalFooter *footer  =[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
         [self loadMore];
     }];
-    
     self.TableView.mj_footer = footer;
+}
+
+-(void)setTableView{
+    
+    _TableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _TableView.delegate = self;
+    _TableView.dataSource = self;
+    _TableView.rowHeight = 60;
+    [self.view addSubview:_TableView];
 }
 
 -(void)setNavi{
@@ -105,7 +101,8 @@
             model.authorLabel = [NSString stringWithFormat:@"%@",dataDict[@"title"]];
             model.videoCount = [NSString stringWithFormat:@"%@",dataDict[@"subTitle"]];
             model.desLabel = [NSString stringWithFormat:@"%@",dataDict[@"description"]];
-            
+            model.authorId = [NSString stringWithFormat:@"%@",dataDict[@"id"]];
+            model.actionUrl = [NSString stringWithFormat:@"%@",dataDict[@"actionUrl"]];
             [_modelArr addObject:model];
         }
         [self.TableView reloadData];
@@ -153,7 +150,8 @@
                 model.authorLabel = [NSString stringWithFormat:@"%@",dataDict[@"title"]];
                 model.videoCount = [NSString stringWithFormat:@"%@",dataDict[@"subTitle"]];
                 model.desLabel = [NSString stringWithFormat:@"%@",dataDict[@"description"]];
-                
+                model.authorId = [NSString stringWithFormat:@"%@",dataDict[@"id"]];
+                model.actionUrl = [NSString stringWithFormat:@"%@",dataDict[@"actionUrl"]];
                 [_modelArr addObject:model];
             }
             
@@ -167,15 +165,6 @@
             [SVProgressHUD dismiss];
         }];
     }
-}
-
--(void)setTableView{
-    
-    _TableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    _TableView.delegate =self;
-    _TableView.dataSource = self;
-    _TableView.rowHeight = 60;
-    [self.view addSubview:_TableView];
 }
 
 
@@ -198,12 +187,22 @@
         
         cell = [[AuthorTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:iDs];
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     AuthorModel *model = _modelArr[indexPath.row];
     cell.authorLabel.text = model.authorLabel;
     cell.videoCount.text = model.videoCount;
     cell.desLabel.text = model.desLabel;
-    
+    [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:model.iconImage]];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    AuthorDetailController *detail = [[AuthorDetailController alloc]init];
+    AuthorModel *model = _modelArr[indexPath.row];
+    detail.authorId = model.authorId;
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 /**

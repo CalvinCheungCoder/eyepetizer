@@ -18,6 +18,10 @@
 @property (nonatomic, copy) NSString *videoCount;
 // 简介
 @property (nonatomic, copy) NSString *desLabel;
+// ID
+@property (nonatomic, copy) NSString *authorId;
+// actionUrl
+@property (nonatomic, copy) NSString *actionUrl;
 
 + (instancetype)tgWithDict:(NSDictionary *)dict;
 

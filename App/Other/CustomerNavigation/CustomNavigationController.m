@@ -22,11 +22,10 @@
     
     [super viewWillAppear:YES];
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"white.png"]
-                       forBarPosition:UIBarPositionAny
-                           barMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-//    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"white.png"]
+//                       forBarPosition:UIBarPositionAny
+//                           barMetrics:UIBarMetricsCompact];
+//    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {

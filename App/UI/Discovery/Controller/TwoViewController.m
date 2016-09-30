@@ -62,7 +62,7 @@
 #pragma mark - 创建UICollectionView
 - (void)setupCollectionView:(UICollectionViewFlowLayout *)layout
 {
-    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 200) collectionViewLayout:layout];
+    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collection.backgroundColor = [UIColor whiteColor];
     collection.center = self.view.center;
     collection.bounds = self.view.bounds;
@@ -82,6 +82,7 @@
     NSString *urlStr = @"http://baobab.wandoujia.com/api/v3/discovery";
     [Networking requestDataByURL:urlStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *itemList = [responseObject objectForKey:@"itemList"];
+        NSLog(@"itemList == %@",itemList);
         for (NSDictionary *dict in itemList) {
             NSString *type = [dict objectForKey:@"type"];
             if ([type isEqualToString:@"squareCard"]) {
@@ -96,7 +97,7 @@
                     model.image = [NSString stringWithFormat:@"%@",Dic[@"image"]];
                     model.actionUrl = [NSString stringWithFormat:@"%@",Dic[@"actionUrl"]];
                     model.title = [NSString stringWithFormat:@"%@",Dic[@"title"]];
-                    
+                    model.IdStr = [NSString stringWithFormat:@"%@",Dic[@"id"]];
                     [_ListArr addObject:model];
                 }
             }
@@ -152,6 +153,7 @@
         DiscoveryModel *model = _ListArr[indexPath.row];
         dis.actionUrl = model.actionUrl;
         dis.pageTitle = model.title;
+        dis.idStr = model.IdStr;
         dis.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:dis animated:YES];
     }

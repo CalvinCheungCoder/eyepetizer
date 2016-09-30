@@ -15,29 +15,27 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        self.contentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.05];
-        
         UIImageView *image = [[UIImageView alloc] init];
         [self.contentView addSubview:image];
         self.iconImage = image;
         
-        UILabel *titleLabel = [[UILabel alloc] init];
-        titleLabel.textColor = [UIColor blackColor];
-        titleLabel.font = [UIFont fontWithName:MyChinFont size:14.f];
-        titleLabel.textAlignment = NSTextAlignmentLeft;
-        [self.contentView addSubview:titleLabel];
-        self.authorLabel = titleLabel;
+        UILabel *authorLabel = [[UILabel alloc] init];
+        authorLabel.textColor = [UIColor blackColor];
+        authorLabel.font = [UIFont fontWithName:MyChinFont size:14.f];
+        authorLabel.textAlignment = NSTextAlignmentLeft;
+        [self.contentView addSubview:authorLabel];
+        self.authorLabel = authorLabel;
         
-        UILabel *messageLabel = [[UILabel alloc] init];
-        messageLabel.textColor = [UIColor grayColor];
-        messageLabel.font = [UIFont systemFontOfSize:12.f];
-        messageLabel.textAlignment = NSTextAlignmentLeft;
-        [self.contentView addSubview:messageLabel];
-        self.videoCount = messageLabel;
+        UILabel *videoCount = [[UILabel alloc] init];
+        videoCount.textColor = [UIColor darkGrayColor];
+        videoCount.font = [UIFont systemFontOfSize:10.f];
+        videoCount.textAlignment = NSTextAlignmentLeft;
+        [self.contentView addSubview:videoCount];
+        self.videoCount = videoCount;
         
-        UILabel *desLabel = [[UILabel alloc]init];
-        desLabel.textColor = [UIColor blackColor];
-        desLabel.font = [UIFont systemFontOfSize:12.f];
+        UILabel *desLabel = [[UILabel alloc] init];
+        desLabel.textColor = [UIColor darkGrayColor];
+        desLabel.font = [UIFont systemFontOfSize:10.f];
         desLabel.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:desLabel];
         self.desLabel = desLabel;
@@ -50,11 +48,15 @@
 {
     [super layoutSubviews];
     
-    self.authorLabel.frame = CGRectMake(20, 10, 100, 20);
+    self.iconImage.frame = CGRectMake(10, 10, 40, 40);
+    self.iconImage.layer.cornerRadius = 20;
+    self.iconImage.layer.masksToBounds = YES;
     
-    self.videoCount.frame = CGRectMake(self.authorLabel.right + 5, 10, 70, 20);
+    self.authorLabel.frame = CGRectMake(60, 10, 100, 20);
     
-    self.desLabel.frame = CGRectMake(_authorLabel.left,_authorLabel.bottom + 5, ScreenWidth - 50, 20);
+    self.videoCount.frame = CGRectMake(_authorLabel.right + 3, _authorLabel.top, 60, 20);
+    
+    self.desLabel.frame = CGRectMake(_authorLabel.left, _authorLabel.bottom + 5, self.bounds.size.width - 80, 20);
 }
 
 

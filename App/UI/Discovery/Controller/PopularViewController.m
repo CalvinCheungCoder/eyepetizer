@@ -53,7 +53,7 @@
 
 -(void)setTopUI{
     
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, 40)];
     topView.backgroundColor = [UIColor whiteColor];
     
     NSArray *arr = [NSArray arrayWithObjects:@"周排行",@"月排行",@"总排行", nil];
@@ -241,7 +241,7 @@
 #pragma mark -- 设置TabView
 -(void)setTableView{
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 40, ScreenWidth, ScreenHeight - 40 - 64) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 104, ScreenWidth, ScreenHeight - 104) style:UITableViewStylePlain];
     self.tableView.rowHeight = ScreenHeight/3;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

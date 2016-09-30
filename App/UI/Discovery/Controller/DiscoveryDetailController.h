@@ -20,4 +20,16 @@
 
 @property (nonatomic, strong) NSMutableArray *ListArr;
 
+@property (nonatomic, strong) UILabel *topLine;
+
+@property (nonatomic, strong) UILabel *line;
+
+@property (nonatomic, strong) UIButton *seleBtn;
+
+@property (nonatomic, strong) NSString *RequestUrl;
+
+@property (nonatomic, strong) NSString *idStr;
+
+@property (nonatomic, strong) NSString *ReqId;
+
 @end

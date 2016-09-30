@@ -80,7 +80,7 @@
 // 设置TableView
 -(void)setTableView{
     
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.rowHeight = ScreenHeight/3;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

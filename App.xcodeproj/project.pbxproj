@@ -30,6 +30,8 @@
 		3EF463971D9E380900906C69 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF463961D9E380900906C69 /* white.png */; };
 		3EF4639D1D9E43E400906C69 /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4639C1D9E43E400906C69 /* Lobster.ttf */; };
 		3EF463A01D9E524600906C69 /* PopularCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4639F1D9E524600906C69 /* PopularCell.m */; };
+		3EF463A21D9E6A8000906C69 /* btn_airplay_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF463A11D9E6A8000906C69 /* btn_airplay_normal.png */; };
+		3EF463A51D9E7C2800906C69 /* AuthorDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF463A41D9E7C2800906C69 /* AuthorDetailController.m */; };
 		9208BA101D80007500A1AC19 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9601D80007500A1AC19 /* AFHTTPRequestOperation.m */; };
 		9208BA111D80007500A1AC19 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9621D80007500A1AC19 /* AFHTTPRequestOperationManager.m */; };
 		9208BA121D80007500A1AC19 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208B9641D80007500A1AC19 /* AFHTTPSessionManager.m */; };
@@ -200,6 +202,9 @@
 		3EF4639C1D9E43E400906C69 /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
 		3EF4639E1D9E524600906C69 /* PopularCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularCell.h; sourceTree = "<group>"; };
 		3EF4639F1D9E524600906C69 /* PopularCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularCell.m; sourceTree = "<group>"; };
+		3EF463A11D9E6A8000906C69 /* btn_airplay_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_airplay_normal.png; sourceTree = "<group>"; };
+		3EF463A31D9E7C2800906C69 /* AuthorDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorDetailController.h; sourceTree = "<group>"; };
+		3EF463A41D9E7C2800906C69 /* AuthorDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorDetailController.m; sourceTree = "<group>"; };
 		9208B95F1D80007500A1AC19 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		9208B9601D80007500A1AC19 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		9208B9611D80007500A1AC19 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -447,6 +452,8 @@
 			children = (
 				3E8CEBEA1D9D60E00074FCE9 /* ThreeViewController.h */,
 				3E8CEBEB1D9D60E00074FCE9 /* ThreeViewController.m */,
+				3EF463A31D9E7C2800906C69 /* AuthorDetailController.h */,
+				3EF463A41D9E7C2800906C69 /* AuthorDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -750,6 +757,7 @@
 		9208B9D91D80007500A1AC19 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				3EF463A11D9E6A8000906C69 /* btn_airplay_normal.png */,
 				3EF4639C1D9E43E400906C69 /* Lobster.ttf */,
 				3EF463961D9E380900906C69 /* white.png */,
 				3E8CEBDD1D9D15FA0074FCE9 /* backImage@2x.png */,
@@ -1119,6 +1127,7 @@
 				9208BA701D80007500A1AC19 /* FZLTZCHJW--GB1-0.TTF in Resources */,
 				9208BA6A1D80007500A1AC19 /* btn_play@2x.png in Resources */,
 				9208BA731D80007500A1AC19 /* Splash_BKG.jpg in Resources */,
+				3EF463A21D9E6A8000906C69 /* btn_airplay_normal.png in Resources */,
 				9208BA521D80007500A1AC19 /* btn_download_normal@2x.png in Resources */,
 				926D35971D8153FA00FA1301 /* V+.png in Resources */,
 				9208BA591D80007500A1AC19 /* btn_HD_normal.png in Resources */,
@@ -1223,6 +1232,7 @@
 				9208BA261D80007500A1AC19 /* UIView+Addition.m in Sources */,
 				920CEFA41D827A6C00A7D22C /* MJRefreshAutoFooter.m in Sources */,
 				9208BA391D80007500A1AC19 /* SDWebImagePrefetcher.m in Sources */,
+				3EF463A51D9E7C2800906C69 /* AuthorDetailController.m in Sources */,
 				9208BA411D80007500A1AC19 /* AppDelegate.m in Sources */,
 				9208BA321D80007500A1AC19 /* NSData+ImageContentType.m in Sources */,
 				9208BA1A1D80007500A1AC19 /* README.md in Sources */,
@@ -1374,7 +1384,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/App/lib/MyPrefixHeader.pch";
 				GENERATE_PROFILING_CODE = NO;
 				INFOPLIST_FILE = App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangdinghao.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1394,7 +1404,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/App/lib/MyPrefixHeader.pch";
 				GENERATE_PROFILING_CODE = NO;
 				INFOPLIST_FILE = App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangdinghao.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";

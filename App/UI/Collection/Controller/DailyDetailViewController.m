@@ -112,29 +112,44 @@
     NSArray *arr = [NSArray arrayWithObjects:
                     [UIImage imageNamed:@"collect"],
                     [UIImage imageNamed:@"upload"],
-                    [UIImage imageNamed:@"collect"],
-                    [UIImage imageNamed:@"upload"], nil];
+                    [UIImage imageNamed:@"btn_airplay_normal"],
+                    [UIImage imageNamed:@"btn_download_normal@2x"], nil];
     
     NSDictionary *dict = self.model.consumption;
     NSArray *messageArr = [NSArray arrayWithObjects:
                            [NSString stringWithFormat:@"%@",dict[@"collectionCount"]],
-                           [NSString stringWithFormat:@"%@",dict[@"replyCount"]],
                            [NSString stringWithFormat:@"%@",dict[@"shareCount"]],
-                           [NSString stringWithFormat:@"%@",dict[@"collectionCount"]], nil];
+                           [NSString stringWithFormat:@"%@",dict[@"replyCount"]],
+                           [NSString stringWithFormat:@"%@",@"缓存"], nil];
     
     for (int i = 0; i < 4; i ++) {
         UIImageView *image = [[UIImageView alloc]init];
-        UILabel *label = [[UILabel alloc]init];
-        image.frame = CGRectMake(ScreenWidth/5 * i + 10, ScreenHeight - 50, 20, 20);
-        label.frame = CGRectMake(ScreenWidth/5 * i + 35, ScreenHeight - 50, 40, 20);
+        UIButton *Btn = [[UIButton alloc]init];
+        image.frame = CGRectMake(ScreenWidth/5 * i + 10, ScreenHeight - 48, 15, 15);
+        Btn.frame = CGRectMake(ScreenWidth/5 * i + 25, ScreenHeight - 50, 40, 20);
         image.image = arr[i];
-        label.text = messageArr[i];
-        label.textColor = [UIColor whiteColor];
-        label.font = [UIFont fontWithName:MyChinFontTwo size:10.f];
-        label.textAlignment = NSTextAlignmentLeft;
+        Btn.titleLabel.textAlignment = NSTextAlignmentLeft;
+        [Btn setTitle:messageArr[i] forState:UIControlStateNormal];
+        [Btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        Btn.titleLabel.font = [UIFont fontWithName:MyChinFont size:12.f];
+        Btn.tag = i;
+        [Btn addTarget:self action:@selector(BottomBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:image];
-        [self.view addSubview:label];
+        [self.view addSubview:Btn];
     }
+}
+
+-(void)BottomBtnClicked:(UIButton *)Btn{
+    
+    NSArray *arr = [NSArray arrayWithObjects:@"收藏",@"分享",@"评论",@"下载", nil];
+    NSString *str = [NSString stringWithFormat:@"你点击了%@",arr[Btn.tag]];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:str preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(void)BackButtonDidClicked{
