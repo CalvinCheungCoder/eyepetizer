@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavHeadTitleView.h"
 
-@interface DiscoveryDetailController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface DiscoveryDetailController : UIViewController<UITableViewDelegate,UITableViewDataSource,NavHeadTitleViewDelegate>
 
 @property (nonatomic, strong) NSString *actionUrl;
 
@@ -31,5 +32,7 @@
 @property (nonatomic, strong) NSString *idStr;
 
 @property (nonatomic, strong) NSString *ReqId;
+
+@property (nonatomic, strong) NavHeadTitleView *NavView;
 
 @end

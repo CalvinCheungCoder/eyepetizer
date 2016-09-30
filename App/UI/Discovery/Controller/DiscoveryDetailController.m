@@ -16,6 +16,13 @@
 
 @implementation DiscoveryDetailController
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:YES];
+    
+    self.navigationController.navigationBarHidden = YES;
+}
+
 -(void)viewDidLoad{
     
     [super viewDidLoad];
@@ -24,6 +31,7 @@
     NSString *titleStr = [self.pageTitle substringFromIndex:1];
     self.title = titleStr;
     
+    [self createNav];
     [self setTopUI];
     self.NextPageStr = [NSString new];
     
@@ -41,6 +49,21 @@
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     [self setupRefresh];
     
+}
+
+-(void)createNav{
+    
+    self.NavView = [[NavHeadTitleView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
+    self.NavView.title = [self.pageTitle substringFromIndex:1];
+    self.NavView.color = [UIColor blackColor];
+    self.NavView.backTitleImage = @"backImage@2x";
+    self.NavView.delegate = self;
+    [self.view addSubview:self.NavView];
+}
+
+- (void)NavHeadback;{
+
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)setTopUI{

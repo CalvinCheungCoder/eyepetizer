@@ -38,6 +38,8 @@
 
 @property (nonatomic, strong) NSArray *controllers;
 
+@property (nonatomic, strong) NSString *RequestUrl;
+
 
 @property (nonatomic, strong) UIImageView *backgroundImgV;//背景图
 @property (nonatomic, assign) float backImgHeight;
@@ -67,6 +69,7 @@
     
     [self setHeadView];
     [self createNav];
+    self.RequestUrl = [NSString stringWithFormat:@"%@%@%@",AuthorDetail1,self.authorId,AuthorDetail2];
     [self loadData];
     [self setTableView];
     
@@ -150,10 +153,7 @@
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showWithStatus:@"数据加载中..."];
     
-    NSString *url = [NSString stringWithFormat:@"%@%@%@",AuthorDetail1,self.authorId,AuthorDetail2];
-    NSLog(@"请求数据 == %@",url);
-    
-    [Networking requestDataByURL:url Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [Networking requestDataByURL:self.RequestUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
         NSLog(@"NextPageStr == %@",self.NextPageStr);
@@ -315,23 +315,28 @@
 
 - (void)headBtnClick:(UIButton*)sender
 {
-    self.seleBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    if (sender.tag == 0) {
+        self.RequestUrl = [NSString stringWithFormat:@"%@%@%@",AuthorDetail1,self.authorId,AuthorDetail2];
+        
+    }else{
+        self.RequestUrl = [NSString stringWithFormat:@"%@%@%@",AuthorShare1,self.authorId,AuthorShare2];
+    }
+    [self loadData];
+    self.seleBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     self.seleBtn.selected = NO;
     self.seleBtn = sender;
     self.seleBtn.selected = YES;
-    self.seleBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    self.seleBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [UIView animateWithDuration:0.2 animations:^{
         
         CGPoint frame = self.line.center;
-        frame.x = ScreenWidth/(self.controllers.count*2) + (ScreenWidth/self.controllers.count)* (sender.tag);
+        frame.x = ScreenWidth/4 + ScreenWidth/2 * (sender.tag);
         self.line.center = frame;
         
         CGPoint frame2 = self.topLine.center;
-        frame2.x = ScreenWidth/(self.controllers.count*2) + (ScreenWidth/self.controllers.count)* (sender.tag);
+        frame2.x = ScreenWidth/4 + ScreenWidth/2 * (sender.tag);
         self.topLine.center = frame2;
     }];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectVC" object:sender userInfo:nil];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

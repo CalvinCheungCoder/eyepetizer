@@ -20,6 +20,9 @@
 #define AuthorDetail1 @"http://baobab.wandoujia.com/api/v3/pgc/videos?_s=4667dd0eacb22bce6099c0d2c1dd5886&f=iphone&net=wifi&num=20&p_product=EYEPETIZER_IOS&pgcId="
 #define AuthorDetail2 @"&start=0&strategy=date&u=8141e05d14a4cabf8464f21683ad382c9df8d55e&v=2.7.0&vc=1305"
 
+#define AuthorShare1 @"http://baobab.wandoujia.com/api/v3/pgc/videos?_s=fb319be3889af5cbd86dcf3b048e9e8b&f=iphone&net=wifi&num=20&p_product=EYEPETIZER_IOS&pgcId="
+#define AuthorShare2 @"&start=0&strategy=shareCount&u=8141e05d14a4cabf8464f21683ad382c9df8d55e&v=2.7.0&vc=1305"
+
 // 类别内分享排行榜
 #define ShareTop1 @"http://baobab.wandoujia.com/api/v3/videos?_s=84dcbd31e142fd912326d4f92f25606f&categoryId="
 #define ShareTop2 @"&f=iphone&net=wifi&num=20&p_product=EYEPETIZER_IOS&start=0&strategy=shareCount&u=8141e05d14a4cabf8464f21683ad382c9df8d55e&v=2.7.0&vc=1305"

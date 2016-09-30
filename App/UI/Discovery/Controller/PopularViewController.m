@@ -10,9 +10,10 @@
 #import "VideoListModel.h"
 #import "PopularCell.h"
 #import "DailyDetailViewController.h"
+#import "NavHeadTitleView.h"
 
 
-@interface PopularViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface PopularViewController ()<UITableViewDelegate,UITableViewDataSource,NavHeadTitleViewDelegate>
 
 @property (nonatomic, strong) NSString *NextPageStr;
 
@@ -28,15 +29,23 @@
 
 @property (nonatomic, strong) NSString *getNetDataUrl;
 
+@property (nonatomic, strong) NavHeadTitleView *NavView;
+
 @end
 
 @implementation PopularViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:YES];
+    
+    self.navigationController.navigationBarHidden = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"排行";
-    
+    [self createNav];
     [self setTopUI];
     self.getNetDataUrl = PopularUrl;
     self.view.backgroundColor = [UIColor whiteColor];
@@ -49,6 +58,21 @@
     //默认【上拉加载】
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     [self setupRefresh];
+}
+
+-(void)createNav{
+    
+    self.NavView = [[NavHeadTitleView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
+    self.NavView.title = @"排行";
+    self.NavView.color = [UIColor blackColor];
+    self.NavView.backTitleImage = @"backImage@2x";
+    self.NavView.delegate = self;
+    [self.view addSubview:self.NavView];
+}
+
+- (void)NavHeadback;{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)setTopUI{
