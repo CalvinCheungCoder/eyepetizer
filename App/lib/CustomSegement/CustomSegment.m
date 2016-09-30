@@ -96,23 +96,23 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SelectVC" object:sender userInfo:nil];
     
 }
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    [UIView animateWithDuration:0.2 animations:^{
-        
-        CGPoint frame = self.line.center;
-        frame.x = self.frame.size.width/(self.controllers.count*2) +(self.frame.size.width/self.controllers.count)*(self.segmentScrollV.contentOffset.x/self.frame.size.width);
-        self.line.center = frame;
-        
-        CGPoint frame2 = self.topLine.center;
-        frame2.x = self.frame.size.width/(self.controllers.count*2) +(self.frame.size.width/self.controllers.count)*(self.segmentScrollV.contentOffset.x/self.frame.size.width);
-        self.topLine.center = frame2;
-    }];
-    UIButton *btn = (UIButton*)[self.segmentView viewWithTag:(self.segmentScrollV.contentOffset.x/self.frame.size.width)];
-    self.seleBtn.selected = NO;
-    self.seleBtn = btn;
-    self.seleBtn.selected = YES;
-}
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    [UIView animateWithDuration:0.2 animations:^{
+//        
+//        CGPoint frame = self.line.center;
+//        frame.x = self.frame.size.width/(self.controllers.count*2) +(self.frame.size.width/self.controllers.count)*(self.segmentScrollV.contentOffset.x/self.frame.size.width);
+//        self.line.center = frame;
+//        
+//        CGPoint frame2 = self.topLine.center;
+//        frame2.x = self.frame.size.width/(self.controllers.count*2) +(self.frame.size.width/self.controllers.count)*(self.segmentScrollV.contentOffset.x/self.frame.size.width);
+//        self.topLine.center = frame2;
+//    }];
+//    UIButton *btn = (UIButton*)[self.segmentView viewWithTag:(self.segmentScrollV.contentOffset.x/self.frame.size.width)];
+//    self.seleBtn.selected = NO;
+//    self.seleBtn = btn;
+//    self.seleBtn.selected = YES;
+//}
 
 
 @end

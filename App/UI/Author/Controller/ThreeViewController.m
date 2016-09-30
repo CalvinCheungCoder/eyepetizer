@@ -201,6 +201,9 @@
     AuthorDetailController *detail = [[AuthorDetailController alloc]init];
     AuthorModel *model = _modelArr[indexPath.row];
     detail.authorId = model.authorId;
+    detail.authorIcon = model.iconImage;
+    detail.authorDesc = model.desLabel;
+    detail.authorName = model.authorLabel;
     detail.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detail animated:YES];
 }
