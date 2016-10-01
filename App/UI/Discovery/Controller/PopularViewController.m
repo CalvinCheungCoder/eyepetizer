@@ -84,7 +84,7 @@
     for (int i = 0;i < 3;i ++)
     {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(i*(ScreenWidth/3), 10, ScreenWidth/3, 20);
+        btn.frame = CGRectMake(i*(ScreenWidth/3), 5, ScreenWidth/3, 30);
         btn.tag = i;
         [btn setTitle:arr[i] forState:(UIControlStateNormal)];
         [btn setTitleColor:[UIColor grayColor] forState:(UIControlStateNormal)];
@@ -101,12 +101,12 @@
         }
     }
     CGFloat lineWidth = ScreenWidth/6;
-    self.line = [[UILabel alloc]initWithFrame:CGRectMake(lineWidth/2,30, lineWidth, 0.5)];
+    self.line = [[UILabel alloc]initWithFrame:CGRectMake(lineWidth/2,34, lineWidth, 0.5)];
     self.line.backgroundColor = [UIColor grayColor];
     self.line.tag = 100;
     [topView addSubview:self.line];
     
-    self.topLine = [[UILabel alloc]initWithFrame:CGRectMake(lineWidth/2, 10, lineWidth, 0.5)];
+    self.topLine = [[UILabel alloc]initWithFrame:CGRectMake(lineWidth/2, 5, lineWidth, 0.5)];
     self.topLine.backgroundColor = [UIColor grayColor];
     self.topLine.tag = 101;
     [topView addSubview:self.topLine];

@@ -126,7 +126,7 @@
         UIImageView *image = [[UIImageView alloc]init];
         UIButton *Btn = [[UIButton alloc]init];
         image.frame = CGRectMake(ScreenWidth/5 * i + 10, ScreenHeight - 48, 15, 15);
-        Btn.frame = CGRectMake(ScreenWidth/5 * i + 25, ScreenHeight - 50, 40, 20);
+        Btn.frame = CGRectMake(ScreenWidth/5 * i + 25, ScreenHeight - 50, 45, 20);
         image.image = arr[i];
         Btn.titleLabel.textAlignment = NSTextAlignmentLeft;
         [Btn setTitle:messageArr[i] forState:UIControlStateNormal];
