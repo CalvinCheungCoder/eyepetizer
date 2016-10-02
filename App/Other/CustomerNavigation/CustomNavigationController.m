@@ -64,7 +64,7 @@
 
 -(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion{
     [self.navigationController dismissViewControllerAnimated:flag completion:completion];
-    self.viewControllers.firstObject.Custom_navigationController=nil;
+    self.viewControllers.firstObject.Custom_navigationController = nil;
 }
 
 @end

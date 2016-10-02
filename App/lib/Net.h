@@ -27,6 +27,11 @@
 #define ShareTop1 @"http://baobab.wandoujia.com/api/v3/videos?_s=84dcbd31e142fd912326d4f92f25606f&categoryId="
 #define ShareTop2 @"&f=iphone&net=wifi&num=20&p_product=EYEPETIZER_IOS&start=0&strategy=shareCount&u=8141e05d14a4cabf8464f21683ad382c9df8d55e&v=2.7.0&vc=1305"
 
+
+// 专题
+#define ZhuanTi1 @"http://baobab.wandoujia.com/api/v3/lightTopics/"
+#define ZhuanTi2 @"?_s=a79330319730972fbf185bd61e331e04&f=iphone&net=wifi&p_product=EYEPETIZER_IOS&u=8141e05d14a4cabf8464f21683ad382c9df8d55e&v=2.7.0&vc=1305"
+
 // 萌宠
 #define MengChongUrl @"http://baobab.wandoujia.com/api/v3/videos?_s=5bd6dd795c645502b7ebbc9980c7322e&categoryId=26"
 

@@ -18,7 +18,6 @@
 /** 标题 */
 @property (nonatomic, copy) NSString *titleLabel;
 
-
 @property (nonatomic, copy) NSString *category;
 
 @property (nonatomic, copy) NSString *duration;
@@ -30,6 +29,8 @@
 @property (nonatomic, copy) NSString *playUrl;
 
 @property (nonatomic, copy) NSString *actionUrl;
+
+@property (nonatomic, copy) NSString *idStr;
 
 
 @end

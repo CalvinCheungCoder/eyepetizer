@@ -1,27 +1,26 @@
 //
-//  ProjectViewController.m
+//  ProjectNextViewController.m
 //  App
 //
-//  Created by CalvinCheung on 16/9/29.
+//  Created by CalvinCheung on 16/10/2.
 //  Copyright © 2016年 张丁豪. All rights reserved.
 //
 
-#import "ProjectViewController.h"
-#import "VideoListModel.h"
-#import "VideoListTableViewCell.h"
 #import "ProjectNextViewController.h"
+#import "VideoListTableViewCell.h"
+#import "DailyDetailViewController.h"
 
-@interface ProjectViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ProjectNextViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, strong) NSString *NextPageStr;
-
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSString *nextPageUrl;
 
 @property (nonatomic, strong) NSMutableArray *ListArr;
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
-@implementation ProjectViewController
+@implementation ProjectNextViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,17 +32,19 @@
        
        NSForegroundColorAttributeName:[UIColor blackColor]}];
     
+    NSString *str = [self.model.actionUrl componentsSeparatedByString:@"title="].lastObject;
+    self.title = [[str componentsSeparatedByString:@"&url="].firstObject stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"专题";
     [self setTableView];
-    [self getProjectData];
+    [self getNetData];
     
     //默认【下拉刷新】
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getProjectData)];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNetData)];
     //默认【上拉加载】
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     [self setupRefresh];
-    
 }
 
 #pragma mark -- 设置TabView
@@ -61,7 +62,7 @@
     
     MJRefreshNormalHeader *header  =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        [self getProjectData];
+        [self getNetData];
     }];
     
     self.tableView.mj_header = header;
@@ -74,31 +75,33 @@
     self.tableView.mj_footer = footer;
 }
 
-#pragma mark -- 获取专题
--(void)getProjectData{
+-(void)getNetData{
     
-    self.ListArr = [[NSMutableArray alloc]init];
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showWithStatus:@"数据加载中..."];
     
-    [Networking requestDataByURL:TopUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.ListArr = [[NSMutableArray alloc]init];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",ZhuanTi1,self.model.idStr,ZhuanTi2];
+    [Networking requestDataByURL:urlStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-        
+        self.nextPageUrl = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
         NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
         
         for (NSDictionary *dict in itemListDict) {
-            
             NSDictionary *dataDict = dict[@"data"];
             
             VideoListModel *model = [[VideoListModel alloc]init];
-            model.ImageView = [NSString stringWithFormat:@"%@",dataDict[@"image"]];
+            model.ImageView = [NSString stringWithFormat:@"%@",dataDict[@"cover"][@"detail"]];
             model.titleLabel = [NSString stringWithFormat:@"%@",dataDict[@"title"]];
-            model.category = [NSString stringWithFormat:@"%@",dataDict[@"dataType"]];
+            model.category = [NSString stringWithFormat:@"%@",dataDict[@"category"]];
+            model.duration = [NSString stringWithFormat:@"%@",dataDict[@"duration"]];
             model.desc = [NSString stringWithFormat:@"%@",dataDict[@"description"]];
-            model.actionUrl = [NSString stringWithFormat:@"%@",dataDict[@"actionUrl"]];
-            model.idStr = [NSString stringWithFormat:@"%@",dataDict[@"id"]];
+            model.playUrl = [NSString stringWithFormat:@"%@",dataDict[@"playUrl"]];
+            NSDictionary *Dic = dataDict[@"consumption"];
+            model.consumption = Dic;
+            
             [_ListArr addObject:model];
         }
         
@@ -108,39 +111,40 @@
         
     } failBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
         
+        NSLog(@"error == %@",error.description);
+        [self endRefresh];
+        [SVProgressHUD dismiss];
     }];
+    
 }
 
-#pragma mark -- 加载更多
 -(void)loadMore{
     
-    if ([self.NextPageStr isEqualToString:@"<null>"]) {
+    if ([self.nextPageUrl isEqualToString:@"<null>"]) {
         
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
         
     }else{
-
+        
         //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD showWithStatus:@"数据加载中..."];
         
-        [Networking requestDataByURL:self.NextPageStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [Networking requestDataByURL:self.nextPageUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
-            self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-            
+            self.nextPageUrl = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
             NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
             
             for (NSDictionary *dict in itemListDict) {
-                
                 NSDictionary *dataDict = dict[@"data"];
                 
                 VideoListModel *model = [[VideoListModel alloc]init];
-                model.ImageView = [NSString stringWithFormat:@"%@",dataDict[@"image"]];
+                model.ImageView = [NSString stringWithFormat:@"%@",dataDict[@"cover"][@"detail"]];
                 model.titleLabel = [NSString stringWithFormat:@"%@",dataDict[@"title"]];
-                model.category = [NSString stringWithFormat:@"%@",dataDict[@"dataType"]];
+                model.category = [NSString stringWithFormat:@"%@",dataDict[@"category"]];
+                model.duration = [NSString stringWithFormat:@"%@",dataDict[@"duration"]];
                 model.desc = [NSString stringWithFormat:@"%@",dataDict[@"description"]];
-                model.actionUrl = [NSString stringWithFormat:@"%@",dataDict[@"actionUrl"]];
-                model.idStr = [NSString stringWithFormat:@"%@",dataDict[@"id"]];
+                model.playUrl = [NSString stringWithFormat:@"%@",dataDict[@"playUrl"]];
                 NSDictionary *Dic = dataDict[@"consumption"];
                 model.consumption = Dic;
                 
@@ -153,6 +157,7 @@
             
         } failBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
             
+            NSLog(@"error == %@",error.description);
             [self endRefresh];
             [SVProgressHUD dismiss];
         }];
@@ -166,6 +171,7 @@
     [self.tableView.mj_footer endRefreshing];
 }
 
+
 #pragma mark -- TableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -177,29 +183,36 @@
     return _ListArr.count;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return ScreenHeight/3;
-}
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *IDStr = @"cell";
-    VideoListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:IDStr];
+    VideoListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
-        cell = [[VideoListTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:IDStr];
+        cell = [[VideoListTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     
     VideoListModel *model = _ListArr[indexPath.row];
     [cell.ImageView sd_setImageWithURL:[NSURL URLWithString:model.ImageView]];
+    cell.titleLabel.text = model.titleLabel;
+    cell.messageLabel.text = [NSString stringWithFormat:@"#%@%@%@",model.category,@" / ",[self timeStrFormTime:model.duration]];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-        ProjectNextViewController *Next = [[ProjectNextViewController alloc]init];
-        Next.model = _ListArr[indexPath.row];
-        [self.navigationController pushViewController:Next animated:YES];
+    DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
+    detail.model = _ListArr[indexPath.row];
+    [self presentViewController:detail animated:YES completion:nil];
 }
+
+//转换时间格式
+-(NSString *)timeStrFormTime:(NSString *)timeStr
+{
+    int time = [timeStr intValue];
+    int minutes = time / 60;
+    int second = (int)time % 60;
+    return [NSString stringWithFormat:@"%02d'%02d\"",minutes,second];
+}
+
+
 
 @end
