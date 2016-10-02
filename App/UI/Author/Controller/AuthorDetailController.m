@@ -12,6 +12,7 @@
 #import "HeadLineView.h"
 #import "VideoListTableViewCell.h"
 #import "VideoListModel.h"
+#import "DailyDetailViewController.h"
 
 @interface AuthorDetailController ()<UITableViewDelegate,UITableViewDataSource,NavHeadTitleViewDelegate,headLineDelegate>
 {
@@ -46,8 +47,8 @@
 @property (nonatomic, assign) float backImgWidth;
 @property (nonatomic, assign) float backImgOrgy;
 @property (nonatomic, strong) NavHeadTitleView *NavView;//导航栏
-@property (nonatomic, strong) HeadView *headImageView;//头视图
-@property (nonatomic, strong) UIView *headLineView;//
+@property (nonatomic, strong) HeadView *headImageView;
+@property (nonatomic, strong) UIView *headLineView;
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, assign) int rowHeight;
 
@@ -171,7 +172,7 @@
             model.duration = [NSString stringWithFormat:@"%@",dataDict[@"duration"]];
             model.desc = [NSString stringWithFormat:@"%@",dataDict[@"description"]];
             model.playUrl = [NSString stringWithFormat:@"%@",dataDict[@"playUrl"]];
-            NSDictionary *Dic = dict[@"consumption"];
+            NSDictionary *Dic = dataDict[@"consumption"];
             model.consumption = Dic;
             
             [_modelArr addObject:model];
@@ -364,7 +365,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
+    detail.model = _modelArr[indexPath.row];
+    [self presentViewController:detail animated:YES completion:nil];
 }
 
 #pragma mark -- 移动变色
