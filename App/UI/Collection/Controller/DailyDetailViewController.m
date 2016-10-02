@@ -35,6 +35,36 @@
     self.view.backgroundColor = [UIColor grayColor];
     
     [self setUI];
+    
+    [self setUISwipe];
+}
+
+-(void)setUISwipe{
+    
+//    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
+//    [recognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
+//    [[self view] addGestureRecognizer:recognizer];
+//    recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
+//    
+//    [recognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+//    [[self view] addGestureRecognizer:recognizer];
+//    recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
+//    
+//    [recognizer setDirection:(UISwipeGestureRecognizerDirectionUp)];
+//    [[self view] addGestureRecognizer:recognizer];
+    
+    // 向下滑动
+    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
+    [recognizer setDirection:(UISwipeGestureRecognizerDirectionDown)];
+    [[self view] addGestureRecognizer:recognizer];
+}
+
+-(void)handleSwipeFrom:(UISwipeGestureRecognizer *)recognizer{
+    
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionDown) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 -(void)setUI{

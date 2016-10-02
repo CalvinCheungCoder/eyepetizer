@@ -78,9 +78,6 @@
     [Networking requestDataByURL:TopUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-        NSLog(@"NextPageStr == %@",self.NextPageStr);
-
-        NSLog(@"responseObject == %@",responseObject);
         
         NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
         
@@ -122,9 +119,6 @@
         [Networking requestDataByURL:self.NextPageStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-            NSLog(@"NextPageStr == %@",self.NextPageStr);
-            
-            NSLog(@"responseObject == %@",responseObject);
             
             NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
             

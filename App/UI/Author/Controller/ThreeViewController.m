@@ -91,7 +91,6 @@
         NSArray *itemListArr = [responseObject objectForKey:@"itemList"];
         
         self.nextPageUrl = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-        NSLog(@"nextPageUrl1 == %@",self.nextPageUrl);
         
         for (NSDictionary *dict in itemListArr) {
             NSDictionary *dataDict = dict[@"data"];
@@ -140,7 +139,6 @@
             NSArray *itemListArr = [responseObject objectForKey:@"itemList"];
             
             self.nextPageUrl = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-            NSLog(@"nextPageUrl2 == %@",self.nextPageUrl);
             
             for (NSDictionary *dict in itemListArr) {
                 NSDictionary *dataDict = dict[@"data"];

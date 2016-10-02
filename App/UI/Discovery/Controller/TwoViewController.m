@@ -82,7 +82,6 @@
     NSString *urlStr = @"http://baobab.wandoujia.com/api/v3/discovery";
     [Networking requestDataByURL:urlStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *itemList = [responseObject objectForKey:@"itemList"];
-        NSLog(@"itemList == %@",itemList);
         for (NSDictionary *dict in itemList) {
             NSString *type = [dict objectForKey:@"type"];
             if ([type isEqualToString:@"squareCard"]) {

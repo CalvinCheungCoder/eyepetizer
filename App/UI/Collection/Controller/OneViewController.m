@@ -103,7 +103,6 @@
     [Networking requestDataByURL:urlStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-        NSLog(@"NextPageStr == %@",self.NextPageStr);
         
         NSDictionary *dailyListDict = [responseObject objectForKey:@"dailyList"];
         
@@ -162,7 +161,6 @@
         [Networking requestDataByURL:self.NextPageStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             self.NextPageStr = [responseObject objectForKey:@"nextPageUrl"];
-            NSLog(@"NextPageStr == %@",self.NextPageStr);
             
             NSDictionary *dailyListDict = [responseObject objectForKey:@"dailyList"];
             for (NSDictionary *videoList in dailyListDict) {

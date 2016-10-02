@@ -159,14 +159,12 @@
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD showWithStatus:@"数据加载中..."];
-    
-    NSLog(@"请求链接：%@",self.RequestUrl);
+
     [Networking requestDataByURL:self.RequestUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if ([self.ReqId isEqualToString:@"1"]) {
             
             self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-            NSLog(@"NextPageStr == %@",self.NextPageStr);
             
             NSDictionary *videoListDict = [responseObject objectForKey:@"videoList"];
             
@@ -192,8 +190,7 @@
         }else{
             
             self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-            NSLog(@"NextPageStr == %@",self.NextPageStr);
-            
+
             NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
             
             for (NSDictionary *dict in itemListDict) {
@@ -242,7 +239,6 @@
             [Networking requestDataByURL:self.NextPageStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-                NSLog(@"NextPageStr == %@",self.NextPageStr);
                 
                 NSDictionary *videoListDict = [responseObject objectForKey:@"videoList"];
                 
@@ -280,7 +276,6 @@
             [Networking requestDataByURL:self.NextPageStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-                NSLog(@"NextPageStr == %@",self.NextPageStr);
                 
                 NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
                 
