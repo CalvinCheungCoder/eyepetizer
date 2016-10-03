@@ -35,8 +35,6 @@
 		<string>FZLTXIHJW--GB1-0.TTF</string>
 		<string>FZLTZCHJW--GB1-0.TTF</string>
 	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

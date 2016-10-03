@@ -41,7 +41,8 @@
     
     [self setTaleView];
     
-    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbar_more_n_p"] style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnClick)];
+    UIImage *image = [[UIImage imageNamed:@"toolbar_more_n_p"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnClick)];
     self.navigationItem.rightBarButtonItem = rightBtn;
     
 }
