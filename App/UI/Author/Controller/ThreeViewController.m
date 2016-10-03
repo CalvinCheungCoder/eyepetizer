@@ -5,6 +5,9 @@
 //  Created by 张丁豪 on 16/9/5.
 //  Copyright © 2016年 张丁豪. All rights reserved.
 //
+// GitHub地址: https://github.com/CalvinCheungCoder/eyepetizer
+// 个人博客: http://www.zhangdinghao.cn
+// QQ: 984382258 欢迎一起学习交流
 
 #import "ThreeViewController.h"
 #import "MyHelper.h"
@@ -187,8 +190,16 @@
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     AuthorModel *model = _modelArr[indexPath.row];
-    cell.authorLabel.text = model.authorLabel;
-    cell.videoCount.text = model.videoCount;
+    NSInteger x = model.authorLabel.length;
+    NSInteger y = model.videoCount.length;
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@   %@",model.authorLabel,model.videoCount]];
+    [str addAttribute:NSFontAttributeName value:[UIFont fontWithName:MyChinFont size:14.f] range:NSMakeRange(0, x)];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, x)];
+    
+    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.f] range:NSMakeRange(x+3, y)];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:NSMakeRange(x+3, y)];
+    
+    cell.authorLabel.attributedText = str;
     cell.desLabel.text = model.desLabel;
     [cell.iconImage sd_setImageWithURL:[NSURL URLWithString:model.iconImage]];
     return cell;

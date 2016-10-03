@@ -5,9 +5,14 @@
 //  Created by 张丁豪 on 16/9/5.
 //  Copyright © 2016年 张丁豪. All rights reserved.
 //
+// GitHub地址: https://github.com/CalvinCheungCoder/eyepetizer
+// 个人博客: http://www.zhangdinghao.cn
+// QQ: 984382258 欢迎一起学习交流
 
 #import "FourViewController.h"
 #import "MyTableViewCell.h"
+#import "MeNextViewController.h"
+#import "LoginViewController.h"
 
 @interface FourViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -16,6 +21,8 @@
 @property (nonatomic, strong) UIView *headView;
 
 @property (nonatomic, strong) UIView *footView;
+
+@property (nonatomic, strong) NSArray *listArr;
 
 @end
 
@@ -34,6 +41,17 @@
     
     [self setTaleView];
     
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"toolbar_more_n_p"] style:UIBarButtonItemStyleDone target:self action:@selector(rightBtnClick)];
+    self.navigationItem.rightBarButtonItem = rightBtn;
+    
+}
+
+-(void)rightBtnClick{
+    
+    MeNextViewController *next = [[MeNextViewController alloc]init];
+    next.pageTitle = @"更多";
+    next.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:next animated:YES];
 }
 
 -(void)setTaleView{
@@ -63,7 +81,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSArray *listArr = [NSArray arrayWithObjects:@"我的消息",@"我的缓存",@"功能开关",@"我要投稿",@"意见反馈", nil];
+    _listArr = [NSArray arrayWithObjects:@"我的消息",@"我的缓存",@"功能开关",@"我要投稿",@"意见反馈", nil];
     
     MyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
@@ -72,17 +90,18 @@
         cell = [[MyTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.label.text = listArr[indexPath.row];
+    cell.label.text = _listArr[indexPath.row];
     return cell;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     self.headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 200)];
-    UIButton *headBtn = [[UIButton alloc]initWithFrame:CGRectMake(ScreenWidth/2 - 40, 10, 80, 80)];
+    UIButton *headBtn = [[UIButton alloc]initWithFrame:CGRectMake(ScreenWidth/2 - 50, 10, 100, 100)];
     [headBtn setBackgroundColor:[UIColor grayColor]];
-    headBtn.layer.cornerRadius = 40;
+    headBtn.layer.cornerRadius = 50;
     headBtn.layer.masksToBounds = YES;
+    [headBtn addTarget:self action:@selector(LoginInBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.headView addSubview:headBtn];
     
     UILabel *headLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, headBtn.bottom + 10, ScreenWidth - 20, 20)];
@@ -95,12 +114,14 @@
     UIButton *shoucangBtn = [[UIButton alloc]initWithFrame:CGRectMake(ScreenWidth/4 - 40, headLabel.bottom + 20, 80, 20)];
     [shoucangBtn setTitle:@"我的收藏" forState:UIControlStateNormal];
     [shoucangBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [shoucangBtn addTarget:self action:@selector(rightBtnClick) forControlEvents:UIControlEventTouchUpInside];
     shoucangBtn.titleLabel.font = [UIFont systemFontOfSize:14.f];
     [self.headView addSubview:shoucangBtn];
     
     UIButton *pinglunBtn = [[UIButton alloc]initWithFrame:CGRectMake(ScreenWidth/4*3 - 40, headLabel.bottom + 20, 80, 20)];
     [pinglunBtn setTitle:@"我的评论" forState:UIControlStateNormal];
     [pinglunBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [pinglunBtn addTarget:self action:@selector(LoginInBtnClick) forControlEvents:UIControlEventTouchUpInside];
     pinglunBtn.titleLabel.font = [UIFont systemFontOfSize:14.f];
     [self.headView addSubview:pinglunBtn];
     
@@ -135,9 +156,23 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 40;
+    return 60;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    MeNextViewController *next = [[MeNextViewController alloc]init];
+    next.pageTitle = _listArr[indexPath.row];
+    next.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:next animated:YES];
+}
+
+
+-(void)LoginInBtnClick{
+    
+    LoginViewController *login = [[LoginViewController alloc]init];
+    [self presentViewController:login animated:YES completion:nil];
+}
 
 
 @end

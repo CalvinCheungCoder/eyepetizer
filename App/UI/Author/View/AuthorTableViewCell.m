@@ -5,6 +5,9 @@
 //  Created by 张丁豪 on 16/9/7.
 //  Copyright © 2016年 张丁豪. All rights reserved.
 //
+// GitHub地址: https://github.com/CalvinCheungCoder/eyepetizer
+// 个人博客: http://www.zhangdinghao.cn
+// QQ: 984382258 欢迎一起学习交流
 
 #import "AuthorTableViewCell.h"
 
@@ -35,7 +38,7 @@
         
         UILabel *desLabel = [[UILabel alloc] init];
         desLabel.textColor = [UIColor darkGrayColor];
-        desLabel.font = [UIFont systemFontOfSize:10.f];
+        desLabel.font = [UIFont systemFontOfSize:12.f];
         desLabel.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:desLabel];
         self.desLabel = desLabel;
@@ -52,11 +55,9 @@
     self.iconImage.layer.cornerRadius = 20;
     self.iconImage.layer.masksToBounds = YES;
     
-    self.authorLabel.frame = CGRectMake(60, 15, 100, 20);
-//    NSDictionary *dict=[NSDictionary dictionaryWithObject: MyChinFont forKey:NSFontAttributeName];
-//    CGRect rect = [string boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
+    self.authorLabel.frame = CGRectMake(60, 15, self.width - 100, 20);
     
-    self.videoCount.frame = CGRectMake(_authorLabel.right + 3, _authorLabel.top, 60, 20);
+//    self.videoCount.frame = CGRectMake(_authorLabel.right + 3, _authorLabel.top, 60, 20);
     
     self.desLabel.frame = CGRectMake(_authorLabel.left, _authorLabel.bottom + 5, self.bounds.size.width - 90, 20);
 }

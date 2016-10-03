@@ -5,16 +5,18 @@
 //  Created by CalvinCheung on 16/9/30.
 //  Copyright © 2016年 张丁豪. All rights reserved.
 //
+// GitHub地址: https://github.com/CalvinCheungCoder/eyepetizer
+// 个人博客: http://www.zhangdinghao.cn
+// QQ: 984382258 欢迎一起学习交流
 
 #import "AuthorDetailController.h"
 #import "NavHeadTitleView.h"
 #import "HeadView.h"
-#import "HeadLineView.h"
 #import "VideoListTableViewCell.h"
 #import "VideoListModel.h"
 #import "DailyDetailViewController.h"
 
-@interface AuthorDetailController ()<UITableViewDelegate,UITableViewDataSource,NavHeadTitleViewDelegate,headLineDelegate>
+@interface AuthorDetailController ()<UITableViewDelegate,UITableViewDataSource,NavHeadTitleViewDelegate>
 {
     //头像
     UIImageView *_headerImg;
@@ -117,7 +119,7 @@
     self.NavView.title = @"";
     self.NavView.color = [UIColor whiteColor];
     self.NavView.backTitleImage = @"backImage@2x";
-    self.NavView.rightTitleImage = @"upload";
+    self.NavView.rightTitleImage = @"icon_share_n@2x";
     self.NavView.delegate = self;
     [self.view addSubview:self.NavView];
 }
@@ -378,7 +380,7 @@
     if (scrollView.contentOffset.y <= 170) {
         self.NavView.headBgView.alpha = scrollView.contentOffset.y/170;
         self.NavView.backTitleImage = @"backImage@2x";
-        self.NavView.rightImageView = @"upload";
+        self.NavView.rightImageView = @"icon_share_n@2x";
         self.NavView.color = [UIColor whiteColor];
         //状态栏字体白色
         [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
@@ -387,7 +389,7 @@
         self.NavView.headBgView.alpha = 1;
         self.NavView.title = self.authorName;
         self.NavView.backTitleImage = @"backImage@2x";
-        self.NavView.rightImageView = @"upload";
+        self.NavView.rightImageView = @"icon_share_n@2x";
         self.NavView.color = [UIColor blackColor];
         // 隐藏黑线
         [self.navigationController.navigationBar setShadowImage:[UIImage new]];

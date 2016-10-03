@@ -5,6 +5,9 @@
 //  Created by 张丁豪 on 16/9/7.
 //  Copyright © 2016年 张丁豪. All rights reserved.
 //
+// GitHub地址: https://github.com/CalvinCheungCoder/eyepetizer
+// 个人博客: http://www.zhangdinghao.cn
+// QQ: 984382258 欢迎一起学习交流
 
 #import "DiscoveryDetailController.h"
 #import "VideoListModel.h"
@@ -46,9 +49,8 @@
     //默认【下拉刷新】
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNetData)];
     //默认【上拉加载】
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    self.tableView.mj_footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     [self setupRefresh];
-    
 }
 
 -(void)createNav{

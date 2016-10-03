@@ -1,8 +1,8 @@
 //
-//  ProjectNextViewController.h
+//  MeNextViewController.h
 //  App
 //
-//  Created by CalvinCheung on 16/10/2.
+//  Created by CalvinCheung on 16/10/3.
 //  Copyright © 2016年 张丁豪. All rights reserved.
 //
 // GitHub地址: https://github.com/CalvinCheungCoder/eyepetizer
@@ -10,10 +10,9 @@
 // QQ: 984382258 欢迎一起学习交流
 
 #import <UIKit/UIKit.h>
-#import "VideoListModel.h"
 
-@interface ProjectNextViewController : UIViewController
+@interface MeNextViewController : UIViewController
 
-@property (nonatomic, strong) VideoListModel *model;
+@property (nonatomic, strong) NSString *pageTitle;
 
 @end
