@@ -15,6 +15,7 @@
 #import "VideoListTableViewCell.h"
 #import "VideoListModel.h"
 #import "DailyDetailViewController.h"
+#import "ShareView.h"
 
 @interface AuthorDetailController ()<UITableViewDelegate,UITableViewDataSource,NavHeadTitleViewDelegate>
 {
@@ -130,7 +131,55 @@
 }
 // 右按钮回调
 -(void)NavHeadToRight{
-    NSLog(@"点击了右按钮");
+    
+    NSArray *shareAry = @[@{@"image":@"shareView_wx@2x",
+                            @"title":@"微信"},
+                          @{@"image":@"shareView_friend@2x",
+                            @"title":@"朋友圈"},
+                          @{@"image":@"shareView_qq@2x",
+                            @"title":@"QQ"},
+                          @{@"image":@"shareView_wb@2x",
+                            @"title":@"新浪微博"},
+                          @{@"image":@"shareView_qzone@2x",
+                            @"title":@"QQ空间"},
+                          @{@"image":@"share_copyLink",
+                            @"title":@"复制链接"}];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 54)];
+    headerView.backgroundColor = [UIColor clearColor];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, headerView.frame.size.width, 15)];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor blackColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:MyChinFont size:16.f];
+    label.text = @"分享";
+    [headerView addSubview:label];
+    
+    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, headerView.frame.size.height-0.5, headerView.frame.size.width - 40, 0.5)];
+    lineLabel.backgroundColor = [UIColor blackColor];
+    [headerView addSubview:lineLabel];
+    
+    UILabel *lineLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, headerView.frame.size.width - 40, 0.5)];
+    lineLabel1.backgroundColor = [UIColor blackColor];
+    
+    ShareView *shareView = [[ShareView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    shareView.backView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
+    shareView.headerView = headerView;
+    float height = [shareView getBoderViewHeight:shareAry firstCount:7];
+    shareView.boderView.frame = CGRectMake(0, 0, shareView.frame.size.width, height);
+    shareView.middleLineLabel.hidden = YES;
+    [shareView.cancleButton addSubview:lineLabel1];
+    shareView.cancleButton.frame = CGRectMake(shareView.cancleButton.frame.origin.x, shareView.cancleButton.frame.origin.y, shareView.cancleButton.frame.size.width, 54);
+    shareView.cancleButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    [shareView.cancleButton setTitleColor:[UIColor colorWithRed:184/255.0 green:184/255.0 blue:184/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [shareView setShareAry:shareAry delegate:self];
+    [self.navigationController.view addSubview:shareView];
+}
+
+- (void)easyCustomShareViewButtonAction:(ShareView *)shareView title:(NSString *)title {
+    
+    NSLog(@"当前点击:%@",title);
 }
 
 #pragma mark -- 创建TabView
@@ -159,7 +208,6 @@
     [Networking requestDataByURL:self.RequestUrl Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-//        NSLog(@"NextPageStr == %@",self.NextPageStr);
         
         NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
         
@@ -205,9 +253,6 @@
         [Networking requestDataByURL:self.NextPageStr Parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             self.NextPageStr = [NSString stringWithFormat:@"%@",responseObject[@"nextPageUrl"]];
-//            NSLog(@"NextPageStr == %@",self.NextPageStr);
-//            
-//            NSLog(@"responseObject == %@",responseObject);
             
             NSDictionary *itemListDict = [responseObject objectForKey:@"itemList"];
             
@@ -383,7 +428,7 @@
         self.NavView.rightImageView = @"icon_share_n@2x";
         self.NavView.color = [UIColor whiteColor];
         //状态栏字体白色
-        [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
         
     }else{
         self.NavView.headBgView.alpha = 1;
@@ -411,7 +456,6 @@
         rect.origin.x = 0;
         rect.origin.y = -contentOffsety;
         _backgroundImgV.frame = rect;
-        
     }
 }
 
