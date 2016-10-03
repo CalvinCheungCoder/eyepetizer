@@ -136,10 +136,10 @@
     
     if (!_tableView) {
         _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight-64) style:UITableViewStylePlain];
-        _tableView.backgroundColor=[UIColor clearColor];
-        _tableView.showsVerticalScrollIndicator=NO;
-        _tableView.dataSource=self;
-        _tableView.delegate=self;
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
         _tableView.tableFooterView = [[UIView alloc] init];
         [self.view addSubview:_tableView];
     }

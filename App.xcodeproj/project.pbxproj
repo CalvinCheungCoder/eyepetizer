@@ -11,6 +11,7 @@
 		3E1F5D2A1D9E927300F12332 /* NavHeadTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F5D291D9E927300F12332 /* NavHeadTitleView.m */; };
 		3E1F5D561D9EAA5A00F12332 /* AuthorDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F5D551D9EAA5A00F12332 /* AuthorDetailCell.m */; };
 		3E1F5D591D9EAA6C00F12332 /* AuthorDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F5D581D9EAA6C00F12332 /* AuthorDetailModel.m */; };
+		3E46C82D1DA25BA200343122 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E46C82C1DA25BA200343122 /* MyTableViewCell.m */; };
 		3E8CEBC51D9CD6A50074FCE9 /* Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBC41D9CD6A50074FCE9 /* Networking.m */; };
 		3E8CEBDB1D9D157D0074FCE9 /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBD81D9D157D0074FCE9 /* CustomNavigationController.m */; };
 		3E8CEBDC1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CEBDA1D9D157D0074FCE9 /* UIViewController+CustomNavigationExtension.m */; };
@@ -174,6 +175,8 @@
 		3E1F5D551D9EAA5A00F12332 /* AuthorDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorDetailCell.m; sourceTree = "<group>"; };
 		3E1F5D571D9EAA6C00F12332 /* AuthorDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorDetailModel.h; sourceTree = "<group>"; };
 		3E1F5D581D9EAA6C00F12332 /* AuthorDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorDetailModel.m; sourceTree = "<group>"; };
+		3E46C82B1DA25BA200343122 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
+		3E46C82C1DA25BA200343122 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
 		3E8CEBC31D9CD6A50074FCE9 /* Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		3E8CEBC41D9CD6A50074FCE9 /* Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Networking.m; sourceTree = "<group>"; };
 		3E8CEBD71D9D157D0074FCE9 /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
@@ -614,6 +617,8 @@
 		3E8CEC131D9D60E00074FCE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3E46C82B1DA25BA200343122 /* MyTableViewCell.h */,
+				3E46C82C1DA25BA200343122 /* MyTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1238,6 +1243,7 @@
 				9208BA341D80007500A1AC19 /* SDWebImageCompat.m in Sources */,
 				3ED5BD531DA1612700C174F6 /* AFHTTPRequestOperationManager.m in Sources */,
 				9221A4AC1D7D236B00C76C73 /* main.m in Sources */,
+				3E46C82D1DA25BA200343122 /* MyTableViewCell.m in Sources */,
 				920CEFA91D827A6C00A7D22C /* MJRefreshAutoGifFooter.m in Sources */,
 				920CEFA51D827A6C00A7D22C /* MJRefreshBackFooter.m in Sources */,
 				3ED5BD621DA1612700C174F6 /* UIProgressView+AFNetworking.m in Sources */,

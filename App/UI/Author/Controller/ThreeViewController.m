@@ -64,7 +64,7 @@
     _TableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _TableView.delegate = self;
     _TableView.dataSource = self;
-    _TableView.rowHeight = 60;
+    _TableView.rowHeight = 70;
     [self.view addSubview:_TableView];
 }
 

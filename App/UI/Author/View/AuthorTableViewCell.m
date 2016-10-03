@@ -48,15 +48,17 @@
 {
     [super layoutSubviews];
     
-    self.iconImage.frame = CGRectMake(10, 10, 40, 40);
+    self.iconImage.frame = CGRectMake(10, 15, 40, 40);
     self.iconImage.layer.cornerRadius = 20;
     self.iconImage.layer.masksToBounds = YES;
     
-    self.authorLabel.frame = CGRectMake(60, 10, 100, 20);
+    self.authorLabel.frame = CGRectMake(60, 15, 100, 20);
+//    NSDictionary *dict=[NSDictionary dictionaryWithObject: MyChinFont forKey:NSFontAttributeName];
+//    CGRect rect = [string boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, height) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
     
     self.videoCount.frame = CGRectMake(_authorLabel.right + 3, _authorLabel.top, 60, 20);
     
-    self.desLabel.frame = CGRectMake(_authorLabel.left, _authorLabel.bottom + 5, self.bounds.size.width - 80, 20);
+    self.desLabel.frame = CGRectMake(_authorLabel.left, _authorLabel.bottom + 5, self.bounds.size.width - 90, 20);
 }
 
 
