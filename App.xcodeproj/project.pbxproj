@@ -77,7 +77,6 @@
 		3ED5BD621DA1612700C174F6 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED5BD4D1DA1612700C174F6 /* UIProgressView+AFNetworking.m */; };
 		3ED5BD631DA1612700C174F6 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED5BD4F1DA1612700C174F6 /* UIRefreshControl+AFNetworking.m */; };
 		3ED5BD641DA1612700C174F6 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED5BD511DA1612700C174F6 /* UIWebView+AFNetworking.m */; };
-		3EF4638A1D9E2EF500906C69 /* CustomSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF463891D9E2EF500906C69 /* CustomSegment.m */; };
 		3EF463971D9E380900906C69 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EF463961D9E380900906C69 /* white.png */; };
 		3EF4639D1D9E43E400906C69 /* Lobster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EF4639C1D9E43E400906C69 /* Lobster.ttf */; };
 		3EF463A01D9E524600906C69 /* PopularCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF4639F1D9E524600906C69 /* PopularCell.m */; };
@@ -315,8 +314,6 @@
 		3ED5BD4F1DA1612700C174F6 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		3ED5BD501DA1612700C174F6 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		3ED5BD511DA1612700C174F6 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		3EF463881D9E2EF500906C69 /* CustomSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegment.h; sourceTree = "<group>"; };
-		3EF463891D9E2EF500906C69 /* CustomSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegment.m; sourceTree = "<group>"; };
 		3EF463961D9E380900906C69 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		3EF4639C1D9E43E400906C69 /* Lobster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster.ttf; sourceTree = "<group>"; };
 		3EF4639E1D9E524600906C69 /* PopularCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularCell.h; sourceTree = "<group>"; };
@@ -782,15 +779,6 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
-		3EF463871D9E2ED600906C69 /* CustomSegement */ = {
-			isa = PBXGroup;
-			children = (
-				3EF463881D9E2EF500906C69 /* CustomSegment.h */,
-				3EF463891D9E2EF500906C69 /* CustomSegment.m */,
-			);
-			path = CustomSegement;
-			sourceTree = "<group>";
-		};
 		3EF463A61D9E919600906C69 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -808,7 +796,6 @@
 				3E46C85E1DA29CA400343122 /* XHLaunchAd */,
 				3E46C8471DA2970D00343122 /* CustomShare */,
 				3ED5BD291DA1612700C174F6 /* AFNetworking */,
-				3EF463871D9E2ED600906C69 /* CustomSegement */,
 				920CEF751D827A6C00A7D22C /* MJRefresh */,
 				9208BA831D8029B400A1AC19 /* SVProgressHUD */,
 				9208B9861D80007500A1AC19 /* Helper */,
@@ -1346,7 +1333,6 @@
 				3E8CEC181D9D60E00074FCE9 /* OneViewController.m in Sources */,
 				3E8CEC141D9D60E00074FCE9 /* ThreeViewController.m in Sources */,
 				3ED5BD631DA1612700C174F6 /* UIRefreshControl+AFNetworking.m in Sources */,
-				3EF4638A1D9E2EF500906C69 /* CustomSegment.m in Sources */,
 				920CEFAE1D827A6C00A7D22C /* MJRefreshBackStateFooter.m in Sources */,
 				920CEFB71D827A6D00A7D22C /* UIView+MJExtension.m in Sources */,
 				9208BA231D80007500A1AC19 /* Factory.m in Sources */,
