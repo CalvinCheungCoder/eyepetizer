@@ -97,7 +97,7 @@
  
  ![](https://github.com/CalvinCheungCoder/eyepetizer/blob/master/AuthorDetail.gif)
  
- #### 自定义分享视图
+#### 自定义分享视图
  
  1、使用代码
  
