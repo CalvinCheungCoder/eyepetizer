@@ -20,6 +20,7 @@
 
 ![image](https://github.com/CalvinCheungCoder/eyepetizer/blob/master/Views.gif)
 
+
 ### 作者详情页面
 
 1、主要代码：
@@ -96,8 +97,9 @@
  2、『实现效果』：
  
  ![](https://github.com/CalvinCheungCoder/eyepetizer/blob/master/AuthorDetail.gif)
- 
-#### 自定义分享视图
+
+
+### 自定义分享视图
  
  1、使用代码
  
@@ -157,20 +159,22 @@
  
  ![](https://github.com/CalvinCheungCoder/eyepetizer/blob/master/Share.gif)
 
-#### 自定义NavigationController
+
+### 自定义NavigationController
 
 『实现效果』：
 
 ![](https://github.com/CalvinCheungCoder/eyepetizer/blob/master/CustomerNav.gif)
 
-#### 视频播放
+
+### 视频播放
 
 『实现效果』：
 
 ![](https://github.com/CalvinCheungCoder/eyepetizer/blob/master/Play.gif)
 
 
-#### 使用到的第三方库
+### 使用到的第三方库
 
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
 
@@ -182,13 +186,15 @@
 
 * [HXEasyCustomShareView](https://github.com/huangxuan518/HXEasyCustomShareView)
 
-#### 运行环境
+
+### 运行环境
 
 Xcode Version 8.0 (8A218a)
 
 Simulator iPhone SE - iOS 10.0
 
-#### 最后说明
+
+### 最后说明
 
 1、本次分享旨在学习与交流，如果涉及版权问题会及时删除代码.
 
