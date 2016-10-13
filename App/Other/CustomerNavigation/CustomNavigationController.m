@@ -21,7 +21,7 @@
 
 @implementation CustomWrapNavigationController
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
     
@@ -65,7 +65,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion{
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion{
     [self.navigationController dismissViewControllerAnimated:flag completion:completion];
     self.viewControllers.firstObject.Custom_navigationController = nil;
 }

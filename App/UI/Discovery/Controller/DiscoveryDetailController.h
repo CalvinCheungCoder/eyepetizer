@@ -14,11 +14,11 @@
 
 @interface DiscoveryDetailController : UIViewController<UITableViewDelegate,UITableViewDataSource,NavHeadTitleViewDelegate>
 
-@property (nonatomic, strong) NSString *actionUrl;
+@property (nonatomic, copy) NSString *actionUrl;
 
-@property (nonatomic, strong) NSString *pageTitle;
+@property (nonatomic, copy) NSString *pageTitle;
 
-@property (nonatomic, strong) NSString *NextPageStr;
+@property (nonatomic, copy) NSString *NextPageStr;
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -30,11 +30,11 @@
 
 @property (nonatomic, strong) UIButton *seleBtn;
 
-@property (nonatomic, strong) NSString *RequestUrl;
+@property (nonatomic, copy) NSString *RequestUrl;
 
-@property (nonatomic, strong) NSString *idStr;
+@property (nonatomic, copy) NSString *idStr;
 
-@property (nonatomic, strong) NSString *ReqId;
+@property (nonatomic, copy) NSString *ReqId;
 
 @property (nonatomic, strong) NavHeadTitleView *NavView;
 

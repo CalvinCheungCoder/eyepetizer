@@ -16,7 +16,7 @@
 
 @interface ProjectViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, strong) NSString *NextPageStr;
+@property (nonatomic, copy) NSString *NextPageStr;
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -50,7 +50,7 @@
 }
 
 #pragma mark -- 设置TabView
--(void)setTableView{
+- (void)setTableView{
     
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.rowHeight = ScreenHeight/3;
@@ -60,7 +60,7 @@
     [self.view addSubview:self.tableView];
 }
 
--(void)setupRefresh{
+- (void)setupRefresh{
     
     MJRefreshNormalHeader *header  =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
@@ -78,7 +78,7 @@
 }
 
 #pragma mark -- 获取专题
--(void)getProjectData{
+- (void)getProjectData{
     
     self.ListArr = [[NSMutableArray alloc]init];
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
@@ -115,7 +115,7 @@
 }
 
 #pragma mark -- 加载更多
--(void)loadMore{
+- (void)loadMore{
     
     if ([self.NextPageStr isEqualToString:@"<null>"]) {
         
@@ -163,7 +163,7 @@
 }
 
 #pragma mark -- 结束刷新
--(void)endRefresh{
+- (void)endRefresh{
     
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
@@ -198,7 +198,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
         ProjectNextViewController *Next = [[ProjectNextViewController alloc]init];
         Next.model = _ListArr[indexPath.row];

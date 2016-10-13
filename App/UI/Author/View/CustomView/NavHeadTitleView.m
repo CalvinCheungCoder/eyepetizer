@@ -55,49 +55,49 @@
     return self;
 }
 
--(void)setBackTitleImage:(NSString *)backTitleImage
+- (void)setBackTitleImage:(NSString *)backTitleImage
 {
     _backTitleImage = backTitleImage;
     [self.back setImage:[UIImage imageNamed:_backTitleImage] forState:UIControlStateNormal];
 }
 
--(void)setRightImageView:(NSString *)rightImageView
+- (void)setRightImageView:(NSString *)rightImageView
 {
     _rightImageView = rightImageView;
     [self.rightBtn setImage:[UIImage imageNamed:_rightImageView] forState:UIControlStateNormal];
 }
 
--(void)setRightTitleImage:(NSString *)rightImageView
+- (void)setRightTitleImage:(NSString *)rightImageView
 {
     _rightImageView = rightImageView;
     [self.rightBtn setImage:[UIImage imageNamed:_rightImageView] forState:UIControlStateNormal];
 }
 
--(void)setTitle:(NSString *)title{
+- (void)setTitle:(NSString *)title{
     _title = title;
     self.label.text = title;
 }
 
--(void)setColor:(UIColor *)color{
+- (void)setColor:(UIColor *)color{
     _color = color;
     self.label.textColor = color;
 }
 
 // 返回按钮
--(void)backClick{
+- (void)backClick{
     if ([_delegate respondsToSelector:@selector(NavHeadback)] ) {
         [_delegate NavHeadback];
     }
 }
 
 // 右边按钮
--(void)rightBtnClick{
+- (void)rightBtnClick{
     if ([_delegate respondsToSelector:@selector(NavHeadToRight)]) {
         [_delegate NavHeadToRight];
     }
 }
 
--(void)jianBian{
+- (void)jianBian{
     
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.frame = self.label.frame;

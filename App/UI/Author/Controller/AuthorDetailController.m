@@ -38,11 +38,11 @@
 
 @property (nonatomic, strong) UIButton *seleBtn;
 
-@property (nonatomic, strong) NSString *NextPageStr;
+@property (nonatomic, copy) NSString *NextPageStr;
 
 @property (nonatomic, strong) NSArray *controllers;
 
-@property (nonatomic, strong) NSString *RequestUrl;
+@property (nonatomic, copy) NSString *RequestUrl;
 
 
 @property (nonatomic, strong) UIImageView *backgroundImgV;//背景图
@@ -59,7 +59,7 @@
 
 @implementation AuthorDetailController
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
     
@@ -84,7 +84,7 @@
     [self setupRefresh];
 }
 
--(void)setupRefresh{
+- (void)setupRefresh{
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
@@ -102,7 +102,7 @@
 }
 
 // 头视图
--(void)setHeadView{
+- (void)setHeadView{
     
     _headImageView = [[HeadView alloc]init];
     _headImageView.frame = CGRectMake(0, 64, ScreenWidth, 170);
@@ -114,7 +114,7 @@
     [self.view addSubview:_headImageView];
 }
 
--(void)createNav{
+- (void)createNav{
     
     self.NavView = [[NavHeadTitleView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
     self.NavView.title = @"";
@@ -125,12 +125,12 @@
     [self.view addSubview:self.NavView];
 }
 // 左按钮
--(void)NavHeadback{
+- (void)NavHeadback{
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 // 右按钮回调
--(void)NavHeadToRight{
+- (void)NavHeadToRight{
     
     NSArray *shareAry = @[@{@"image":@"shareView_wx@2x",
                             @"title":@"微信"},
@@ -183,7 +183,7 @@
 }
 
 #pragma mark -- 创建TabView
--(void)setTableView{
+- (void)setTableView{
     
     if (!_tableView) {
         _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight-64) style:UITableViewStylePlain];
@@ -198,7 +198,7 @@
 }
 
 #pragma mark -- 加载数据
--(void)loadData{
+- (void)loadData{
 
     self.modelArr = [[NSMutableArray alloc]init];
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
@@ -238,7 +238,7 @@
 }
 
 #pragma mark -- 加载更多
--(void)loadMore{
+- (void)loadMore{
     
     if ([self.NextPageStr isEqualToString:@"<null>"]) {
         
@@ -286,18 +286,18 @@
 }
 
 #pragma mark -- 结束刷新
--(void)endRefresh{
+- (void)endRefresh{
     
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
 }
 
 // 头像点击事件
--(void)tapClick:(UITapGestureRecognizer *)recognizer{
+- (void)tapClick:(UITapGestureRecognizer *)recognizer{
     NSLog(@"你打到我的头了");
 }
 // 修改昵称
--(void)fixClick:(UIButton *)btn{
+- (void)fixClick:(UIButton *)btn{
     NSLog(@"修改昵称");
 }
 
@@ -410,7 +410,7 @@
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
     detail.model = _modelArr[indexPath.row];
@@ -418,7 +418,7 @@
 }
 
 #pragma mark -- 移动变色
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     int contentOffsety = scrollView.contentOffset.y;
     

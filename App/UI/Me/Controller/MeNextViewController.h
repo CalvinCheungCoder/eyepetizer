@@ -13,6 +13,6 @@
 
 @interface MeNextViewController : UIViewController
 
-@property (nonatomic, strong) NSString *pageTitle;
+@property (nonatomic, copy) NSString *pageTitle;
 
 @end

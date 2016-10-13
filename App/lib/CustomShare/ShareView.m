@@ -46,13 +46,13 @@
     return self;
 }
 
--(void)setHeaderView:(UIView *)headerView {
+- (void)setHeaderView:(UIView *)headerView {
     [_headerView removeFromSuperview];
     _headerView = headerView;
     [self addSubview:_headerView];
 }
 
--(void)setFooterView:(UIView *)footerView {
+- (void)setFooterView:(UIView *)footerView {
     [_footerView removeFromSuperview];
     _footerView = footerView;
     [self addSubview:_footerView];
@@ -153,7 +153,7 @@
     }];
 }
 
--(void)layoutSubviews {
+- (void)layoutSubviews {
     [super layoutSubviews];
     float height = 0;
     

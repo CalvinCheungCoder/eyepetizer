@@ -63,7 +63,7 @@
     [self setupRefresh];
 }
 
--(void)setupRefresh{
+- (void)setupRefresh{
     
     MJRefreshNormalHeader *header  =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
@@ -81,7 +81,7 @@
 }
 
 // 设置TableView
--(void)setTableView{
+- (void)setTableView{
     
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.rowHeight = ScreenHeight/3;
@@ -92,7 +92,7 @@
 }
 
 // 获取数据
--(void)getNetData{
+- (void)getNetData{
     
     _ListArr = [[NSMutableArray alloc]init];
     
@@ -140,7 +140,7 @@
 }
 
 // 加载更多
--(void)loadMore{
+- (void)loadMore{
     
     if ([self.NextPageStr isEqualToString:@"<null>"]) {
         
@@ -195,7 +195,7 @@
     }
 }
 
--(void)endRefresh{
+- (void)endRefresh{
     
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
@@ -245,7 +245,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
     detail.model = _ListArr[indexPath.row];

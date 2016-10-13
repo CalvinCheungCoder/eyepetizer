@@ -19,14 +19,14 @@
 
 @implementation DiscoveryDetailController
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
     
     self.navigationController.navigationBarHidden = YES;
 }
 
--(void)viewDidLoad{
+- (void)viewDidLoad{
     
     [super viewDidLoad];
     
@@ -53,7 +53,7 @@
     [self setupRefresh];
 }
 
--(void)createNav{
+- (void)createNav{
     
     self.NavView = [[NavHeadTitleView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
     self.NavView.title = [self.pageTitle substringFromIndex:1];
@@ -68,7 +68,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)setTopUI{
+- (void)setTopUI{
     
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, 40)];
     topView.backgroundColor = [UIColor whiteColor];
@@ -137,7 +137,7 @@
 }
 
 
--(void)setupRefresh{
+- (void)setupRefresh{
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
@@ -155,7 +155,7 @@
 }
 
 
--(void)getNetData{
+- (void)getNetData{
     
     self.ListArr = [[NSMutableArray alloc]init];
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
@@ -224,7 +224,7 @@
 }
 
 #pragma mark -- 加载更多
--(void)loadMore{
+- (void)loadMore{
 
     if ([self.NextPageStr isEqualToString:@"<null>"]) {
         
@@ -312,14 +312,14 @@
 }
 
 #pragma mark -- 结束刷新
--(void)endRefresh{
+- (void)endRefresh{
     
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma mark -- 设置TabView
--(void)setTableView{
+- (void)setTableView{
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 104, ScreenWidth, ScreenHeight - 104) style:UITableViewStylePlain];
     self.tableView.rowHeight = ScreenHeight/3;
@@ -354,7 +354,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
     detail.model = _ListArr[indexPath.row];

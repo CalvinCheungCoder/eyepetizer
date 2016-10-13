@@ -78,7 +78,7 @@
     self.collectionView = collection;
 }
 
--(void)getNetData{
+- (void)getNetData{
     
     _ListArr = [[NSMutableArray alloc]init];
     
@@ -134,7 +134,7 @@
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     
     if (indexPath.row == 0) {

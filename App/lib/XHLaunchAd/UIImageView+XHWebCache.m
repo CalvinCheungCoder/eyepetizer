@@ -22,7 +22,7 @@
 {
     [self xh_setImageWithURL:url placeholderImage:placeholder options:XHWebImageDefault completed:completedBlock];
 }
--(void)xh_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(XHWebImageOptions)options completed:(XHWebImageCompletionBlock)completedBlock
+- (void)xh_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(XHWebImageOptions)options completed:(XHWebImageCompletionBlock)completedBlock
 {
     if(placeholder) self.image = placeholder;
     if(url)

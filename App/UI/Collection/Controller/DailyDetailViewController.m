@@ -42,7 +42,7 @@
     [self setUISwipe];
 }
 
--(void)setUISwipe{
+- (void)setUISwipe{
     
 //    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
 //    [recognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
@@ -62,7 +62,7 @@
     [[self view] addGestureRecognizer:recognizer];
 }
 
--(void)handleSwipeFrom:(UISwipeGestureRecognizer *)recognizer{
+- (void)handleSwipeFrom:(UISwipeGestureRecognizer *)recognizer{
     
     if(recognizer.direction == UISwipeGestureRecognizerDirectionDown) {
         
@@ -70,7 +70,7 @@
     }
 }
 
--(void)setUI{
+- (void)setUI{
     
     UIImageView *backImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     [backImageView sd_setImageWithURL:[NSURL URLWithString:self.model.ImageView] completed:nil];
@@ -172,7 +172,7 @@
     }
 }
 
--(void)BottomBtnClicked:(UIButton *)Btn{
+- (void)BottomBtnClicked:(UIButton *)Btn{
     
     NSArray *arr = [NSArray arrayWithObjects:@"收藏",@"分享",@"评论",@"下载", nil];
     NSString *str = [NSString stringWithFormat:@"你点击了%@",arr[Btn.tag]];
@@ -185,7 +185,7 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
--(void)BackButtonDidClicked{
+- (void)BackButtonDidClicked{
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -199,7 +199,7 @@
     return [NSString stringWithFormat:@"%02d'%02d\"",minutes,second];
 }
 
--(void)btnClicked{
+- (void)btnClicked{
     
     VideoPlayViewController *videoPlay = [[VideoPlayViewController alloc]init];
     videoPlay.UrlString = self.model.playUrl;

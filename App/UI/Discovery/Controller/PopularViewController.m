@@ -18,7 +18,7 @@
 
 @interface PopularViewController ()<UITableViewDelegate,UITableViewDataSource,NavHeadTitleViewDelegate>
 
-@property (nonatomic, strong) NSString *NextPageStr;
+@property (nonatomic, copy) NSString *NextPageStr;
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -30,7 +30,7 @@
 
 @property (nonatomic, strong) UIButton *seleBtn;
 
-@property (nonatomic, strong) NSString *getNetDataUrl;
+@property (nonatomic, copy) NSString *getNetDataUrl;
 
 @property (nonatomic, strong) NavHeadTitleView *NavView;
 
@@ -38,7 +38,7 @@
 
 @implementation PopularViewController
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
     
@@ -63,7 +63,7 @@
     [self setupRefresh];
 }
 
--(void)createNav{
+- (void)createNav{
     
     self.NavView = [[NavHeadTitleView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
     self.NavView.title = @"排行";
@@ -78,7 +78,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)setTopUI{
+- (void)setTopUI{
     
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, 40)];
     topView.backgroundColor = [UIColor whiteColor];
@@ -146,7 +146,7 @@
 }
 
 
--(void)setupRefresh{
+- (void)setupRefresh{
     
     MJRefreshNormalHeader *header  =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
@@ -164,7 +164,7 @@
 }
 
 #pragma mark -- 获取Popular
--(void)getPopular{
+- (void)getPopular{
     
     self.ListArr = [[NSMutableArray alloc]init];
     
@@ -205,7 +205,7 @@
 }
 
 #pragma mark -- 加载更多
--(void)loadMore{
+- (void)loadMore{
     
     if ([self.NextPageStr isEqualToString:@"<null>"]) {
         
@@ -253,14 +253,14 @@
 }
 
 #pragma mark -- 结束刷新
--(void)endRefresh{
+- (void)endRefresh{
     
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma mark -- 设置TabView
--(void)setTableView{
+- (void)setTableView{
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 104, ScreenWidth, ScreenHeight - 104) style:UITableViewStylePlain];
     self.tableView.rowHeight = ScreenHeight/3;
@@ -296,7 +296,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DailyDetailViewController *detail = [[DailyDetailViewController alloc]init];
     detail.model = _ListArr[indexPath.row];

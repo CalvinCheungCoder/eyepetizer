@@ -38,7 +38,7 @@ static NSInteger const noDataDefaultDuration = 3;
     if(setAdImage) setAdImage(AdVC);
 }
 
--(void)setImageUrl:(NSString *)imageUrl duration:(NSInteger)duration skipType:(SkipType)skipType options:(XHWebImageOptions)options completed:(XHWebImageCompletionBlock)completedBlock click:(clickBlock)click
+- (void)setImageUrl:(NSString *)imageUrl duration:(NSInteger)duration skipType:(SkipType)skipType options:(XHWebImageOptions)options completed:(XHWebImageCompletionBlock)completedBlock click:(clickBlock)click
 {
     if(_isShowFinish) return;
     if([self imageUrlError:imageUrl]) return;
@@ -101,7 +101,7 @@ static NSInteger const noDataDefaultDuration = 3;
     }
     return self;
 }
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     if(_skipButtonTimer&&_duration>0&&self.isClick)
     {
@@ -109,14 +109,14 @@ static NSInteger const noDataDefaultDuration = 3;
     }
     self.isClick = NO;
 }
--(void)viewWillDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
     if(_skipButtonTimer&&_duration>0&&self.isClick)
     {
         dispatch_suspend(_skipButtonTimer);
     }
 }
--(void)dealloc
+- (void)dealloc
 {
     //NSLog(@"广告视图销毁");
 }
@@ -130,7 +130,7 @@ static NSInteger const noDataDefaultDuration = 3;
     
     return  NO;
 }
--(void)setupAdImgViewAndSkipButton
+- (void)setupAdImgViewAndSkipButton
 {
     [self.view addSubview:self.adImgView];
     [self.view addSubview:self.skipButton];
@@ -180,7 +180,7 @@ static NSInteger const noDataDefaultDuration = 3;
     return _skipButton;
 }
 
--(void)skipButtonTitleWithDuration:(NSInteger)duration{
+- (void)skipButtonTitleWithDuration:(NSInteger)duration{
     
     switch (_skipType) {
         case SkipTypeNone:
@@ -210,7 +210,7 @@ static NSInteger const noDataDefaultDuration = 3;
     }
 }
 
--(void)animateStart
+- (void)animateStart
 {
     CGFloat duration = _duration;
     duration= duration/4.0;
@@ -223,7 +223,7 @@ static NSInteger const noDataDefaultDuration = 3;
     }];
 }
 
--(void)startNoDataDispath_tiemr
+- (void)startNoDataDispath_tiemr
 {
     NSTimeInterval period = 1.0;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -246,7 +246,7 @@ static NSInteger const noDataDefaultDuration = 3;
     dispatch_resume(_noDataTimer);
 }
 
--(void)startSkipButtonTimer
+- (void)startSkipButtonTimer
 {
     if(_noDataTimer) dispatch_source_cancel(_noDataTimer);
     
@@ -270,7 +270,7 @@ static NSInteger const noDataDefaultDuration = 3;
     });
     dispatch_resume(_skipButtonTimer);
 }
--(void)skipAction{
+- (void)skipAction{
     
     if(_skipType != SkipTypeTime)
     {
@@ -279,7 +279,7 @@ static NSInteger const noDataDefaultDuration = 3;
     }
 }
 
--(void)tapAction:(UITapGestureRecognizer *)tap
+- (void)tapAction:(UITapGestureRecognizer *)tap
 {
     if(_duration>0)
     {
@@ -323,19 +323,19 @@ static NSInteger const noDataDefaultDuration = 3;
     }
     return nil;
 }
--(void)setAdFrame:(CGRect)adFrame
+- (void)setAdFrame:(CGRect)adFrame
 {
     _adFrame = adFrame;
     _adImgView.frame = adFrame;
 }
--(void)setNoDataDuration:(NSInteger)noDataDuration
+- (void)setNoDataDuration:(NSInteger)noDataDuration
 {
     if(noDataDuration<1) noDataDuration=1;
     _noDataDuration = noDataDuration;
     dispatch_source_cancel(_noDataTimer);
     [self startNoDataDispath_tiemr];
 }
--(void)remove{
+- (void)remove{
 
     [UIView transitionWithView:[[UIApplication sharedApplication].delegate window] duration:0.3 options: UIViewAnimationOptionTransitionCrossDissolve animations:^{
         BOOL oldState=[UIView areAnimationsEnabled];

@@ -38,7 +38,7 @@
     [self setUpUI];
 }
 
--(void)setUpUI{
+- (void)setUpUI{
     
     _backImage = [[UIImageView alloc]initWithFrame:self.view.bounds];
     _backImage.image = [UIImage imageNamed:@"Login_BKG"];
@@ -144,14 +144,14 @@
     [self.view addSubview:butn];
 }
 
--(void)click{
+- (void)click{
     
     UserAgreement *user = [[UserAgreement alloc]init];
     [self presentViewController:user animated:YES completion:nil];
 }
 
 
--(void)closeThePage{
+- (void)closeThePage{
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

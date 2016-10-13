@@ -72,7 +72,7 @@
 }
 
 // 暂停
--(void)stopPlay{
+- (void)stopPlay{
     if( [UIApplication sharedApplication].applicationState == UIApplicationStateActive ) {
         
         [self.player play];
@@ -83,7 +83,7 @@
 }
 
 // 播放
--(void)play{
+- (void)play{
     if( [UIApplication sharedApplication].applicationState == UIApplicationStateActive ) {
         
         [self.player play];
@@ -93,7 +93,7 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     
     self.navigationController.navigationBar.alpha = 0;
 }
@@ -149,7 +149,7 @@
     return scaledImage;
 }
 
--(void)setUpControllView{
+- (void)setUpControllView{
     
     _ControlView = [[UIView alloc]init];
     _player.volume = 2;
@@ -306,7 +306,7 @@
 }
 
 // 收藏button点击事件
--(void)collectButtonDidClicked:(UIButton *)sender{
+- (void)collectButtonDidClicked:(UIButton *)sender{
     [sender setShowsTouchWhenHighlighted:1];
     if (!_isCollect) {
         [_CollectButton setBackgroundImage:[UIImage imageNamed:@"collectSelete.png"] forState:UIControlStateNormal];
@@ -318,12 +318,12 @@
 }
 
 // 返回Button点击事件
--(void)BackButtonDidClicked:(UIButton *)sender{
+- (void)BackButtonDidClicked:(UIButton *)sender{
     [self dismissViewControllerAnimated:1 completion:nil];
 }
 
 // 音量加
--(void)volumeUp:(UIButton *)sender{
+- (void)volumeUp:(UIButton *)sender{
     [sender setShowsTouchWhenHighlighted:1];
     if(_player.volume < 5){
         _player.volume += 0.5;
@@ -335,7 +335,7 @@
 }
 
 // 声音减
--(void)volumeDown:(UIButton *)sender{
+- (void)volumeDown:(UIButton *)sender{
     [sender setShowsTouchWhenHighlighted:1];
     if (_player.volume < 5) {
         _player.volume -= 0.4;
@@ -346,7 +346,7 @@
 }
 
 // 暂停点击
--(void)pauseButtonDidClicked:(UIButton *)sender{
+- (void)pauseButtonDidClicked:(UIButton *)sender{
     [sender setShowsTouchWhenHighlighted:1];
     if (!_isPause) {
         [_pauseButton setImage:[UIImage imageNamed:@"btn_play@2x"] forState:UIControlStateNormal];
@@ -363,13 +363,13 @@
 }
 
 // 收回控制器
--(void)refondContr:(NSTimer *)sender{
+- (void)refondContr:(NSTimer *)sender{
     _ControlView.hidden = 1 ;
     _shadeView.hidden = 1;
 }
 
 // timeSlider更新
--(void)UpdateTimeSlider:(NSTimer *)sender{
+- (void)UpdateTimeSlider:(NSTimer *)sender{
     
 }
 
@@ -428,7 +428,7 @@
 }
 
 // timeSlider绑定事件
--(void)changeProgress:(UISlider *)sender{
+- (void)changeProgress:(UISlider *)sender{
     
     [self.player pause];
     CMTime cmtime = CMTimeMakeWithSeconds(sender.value, self.player.currentTime.timescale);
@@ -457,7 +457,7 @@
     return [NSString stringWithFormat:@"%.2ld:%.2ld",min,sec];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated{
     [_player pause];
     [_player setRate:0];
     [_player.currentItem removeObserver:self forKeyPath:@"loadedTimeRanges" context:nil];
@@ -470,7 +470,7 @@
     _timer = time;
 }
 
--(void)remove:(NSTimer *)sender{
+- (void)remove:(NSTimer *)sender{
     [self.timer invalidate];
     self.timer = nil;
 }

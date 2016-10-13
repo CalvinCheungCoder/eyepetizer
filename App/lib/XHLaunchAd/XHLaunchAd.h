@@ -74,7 +74,7 @@ typedef void(^showFinishBlock)();
  *  @param completedBlock 异步加载完图片回调
  *  @param click          广告点击事件回调
  */
--(void)setImageUrl:(NSString*)imageUrl duration:(NSInteger)duration skipType:(SkipType)skipType options:(XHWebImageOptions)options completed:(XHWebImageCompletionBlock)completedBlock click:(clickBlock)click;
+- (void)setImageUrl:(NSString*)imageUrl duration:(NSInteger)duration skipType:(SkipType)skipType options:(XHWebImageOptions)options completed:(XHWebImageCompletionBlock)completedBlock click:(clickBlock)click;
 
 /**
  *  清除图片本地缓存

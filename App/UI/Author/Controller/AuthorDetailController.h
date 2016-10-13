@@ -13,7 +13,7 @@
 
 @interface AuthorDetailController : UIViewController
 
-@property (nonatomic, strong) NSString *authorId;
+@property (nonatomic, copy) NSString *authorId;
 
 // 作者信息
 @property (nonatomic, copy) NSString *authorName;

@@ -26,14 +26,14 @@
 
 @property (nonatomic, strong) UIImageView *headBgView;
 
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, copy) NSString *title;
 
 @property (nonatomic, strong) UIColor *color;
 
-@property (nonatomic, strong) NSString *backTitleImage;
+@property (nonatomic, copy) NSString *backTitleImage;
 
-@property (nonatomic, strong) NSString *rightImageView;
+@property (nonatomic, copy) NSString *rightImageView;
 
-@property (nonatomic, strong) NSString *rightTitleImage;
+@property (nonatomic, copy) NSString *rightTitleImage;
 
 @end

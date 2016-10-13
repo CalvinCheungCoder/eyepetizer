@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) NSDictionary *Dict;
 
-@property (nonatomic, strong) NSString *nextPageUrl;
+@property (nonatomic, copy) NSString *nextPageUrl;
 
 @end
 
@@ -47,7 +47,7 @@
     [self setupRefresh];
 }
 
--(void)setupRefresh{
+- (void)setupRefresh{
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
@@ -62,7 +62,7 @@
     self.TableView.mj_footer = footer;
 }
 
--(void)setTableView{
+- (void)setTableView{
     
     _TableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _TableView.delegate = self;
@@ -71,7 +71,7 @@
     [self.view addSubview:_TableView];
 }
 
--(void)setNavi{
+- (void)setNavi{
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
     label.text = @"eyepetizer";
@@ -82,7 +82,7 @@
 }
 
 
--(void)getNetData{
+- (void)getNetData{
     
     //正方形的背景样式(或颜色),黑色背景,白色圆环和文字
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -118,13 +118,13 @@
     }];
 }
 
--(void)endRefresh{
+- (void)endRefresh{
     
     [self.TableView.mj_header endRefreshing];
     [self.TableView.mj_footer endRefreshing];
 }
 
--(void)loadMore{
+- (void)loadMore{
     
     if ([self.nextPageUrl isEqualToString:@"<null>"]) {
         
@@ -205,7 +205,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     AuthorDetailController *detail = [[AuthorDetailController alloc]init];
     AuthorModel *model = _modelArr[indexPath.row];
@@ -222,7 +222,7 @@
  *
  *  @param scrollView scrollView description
  */
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 //    
 //    self.navigationController.navigationBar.alpha = scrollView.contentOffset.y/200;
 //}

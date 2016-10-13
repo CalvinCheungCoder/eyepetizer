@@ -18,6 +18,6 @@
 /**
  *  扩大button点击区域,4边分别设置
  */
--(void)xh_setEnlargedEdgeWithTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right;
+- (void)xh_setEnlargedEdgeWithTop:(CGFloat)top left:(CGFloat)left bottom:(CGFloat)bottom right:(CGFloat)right;
 
 @end

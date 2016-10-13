@@ -28,7 +28,7 @@
     [self.view addSubview:btn];
 }
 
--(void)getData{
+- (void)getData{
     
     UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 20, ScreenWidth, ScreenHeight)];
     webView.backgroundColor = [UIColor whiteColor];
@@ -44,7 +44,7 @@
     [self.view addSubview:webView];
 }
 
--(void)btnClick{
+- (void)btnClick{
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

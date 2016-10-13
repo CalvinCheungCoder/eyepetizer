@@ -48,7 +48,7 @@
     [self setTabBarItems];
 }
 
--(void)createSubViewControllers{
+- (void)createSubViewControllers{
     
     OneViewController *One = [[OneViewController alloc]init];
     CustomNavigationController *navi = [[CustomNavigationController alloc]initWithRootViewController:One];
@@ -69,7 +69,7 @@
     self.viewControllers = @[navi,navitwo,navithree,naviFour];
 }
 
--(void)setTabBarItems{
+- (void)setTabBarItems{
     
     NSArray *titleArr = @[@"精选",@"发现",@"作者",@"我的"];
     NSArray *normalImgArr = @[@"ali1",@"011",@"win1",@"my1"];

@@ -13,11 +13,11 @@
 
 @interface HeadView : UIView
 
-@property (nonatomic, strong) NSString *imageUrl;
+@property (nonatomic, copy) NSString *imageUrl;
 
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, copy) NSString *name;
 
-@property (nonatomic, strong) NSString *content;
+@property (nonatomic, copy) NSString *content;
 
 @property (nonatomic, strong) UIImageView *imageView;
 

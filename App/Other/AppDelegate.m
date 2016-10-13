@@ -39,7 +39,7 @@
 /**
  *  启动页广告
  */
--(void)example
+- (void)example
 {
     /**
      *  1.显示启动页广告
@@ -93,7 +93,7 @@
  *
  *  @param imageData 回调imageUrl,及停留时间,跳转链接
  */
--(void)requestImageData:(void(^)(NSString *imgUrl,NSInteger duration,NSString *openUrl))imageData{
+- (void)requestImageData:(void(^)(NSString *imgUrl,NSInteger duration,NSString *openUrl))imageData{
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         

@@ -47,7 +47,7 @@
     
 }
 
--(void)rightBtnClick{
+- (void)rightBtnClick{
     
     MeNextViewController *next = [[MeNextViewController alloc]init];
     next.pageTitle = @"更多";
@@ -55,7 +55,7 @@
     [self.navigationController pushViewController:next animated:YES];
 }
 
--(void)setTaleView{
+- (void)setTaleView{
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     _tableView.backgroundColor = [UIColor whiteColor];
@@ -160,7 +160,7 @@
     return 60;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     MeNextViewController *next = [[MeNextViewController alloc]init];
     next.pageTitle = _listArr[indexPath.row];
@@ -169,7 +169,7 @@
 }
 
 
--(void)LoginInBtnClick{
+- (void)LoginInBtnClick{
     
     LoginViewController *login = [[LoginViewController alloc]init];
     [self presentViewController:login animated:YES completion:nil];
