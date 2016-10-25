@@ -31,6 +31,13 @@
 
 #define BASECOLOR [UIColor colorWithRed:1 green:.78 blue:.27 alpha:1]
 
+#ifdef DEBUG
+#define MyLog(FORMAT, ...) fprintf(stderr,"%s: 第%d行\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+
+#else
+#define MyLog(...)
+#endif
+
 #endif
 
 

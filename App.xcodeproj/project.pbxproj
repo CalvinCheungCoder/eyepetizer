@@ -1188,7 +1188,7 @@
 				TargetAttributes = {
 					9221A4A61D7D236B00C76C73 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = PRKPCBLSYK;
+						ProvisioningStyle = Automatic;
 					};
 					9221A4B91D7D236B00C76C73 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1548,6 +1548,7 @@
 				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/App/lib/MyPrefixHeader.pch";
@@ -1569,6 +1570,7 @@
 				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/App/lib/MyPrefixHeader.pch";

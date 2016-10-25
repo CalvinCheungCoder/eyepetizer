@@ -101,6 +101,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    MyLog(@"%@",self.UrlString);
     self.view.backgroundColor = [UIColor blackColor];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(stopPlay) name:@"stop" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(play) name:@"stop" object:nil];
