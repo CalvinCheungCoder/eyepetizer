@@ -242,7 +242,7 @@
 }
 
 
-//颜色生成图片方法
+// 颜色生成图片方法
 - (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
     
